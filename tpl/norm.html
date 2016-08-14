@@ -1,0 +1,907 @@
+{include="header"}
+
+<div class="container lxui-docs-container">
+
+	<div class="row">
+
+		<div class="col-md-3">
+
+			<div class="bs-sidebar hidden-print" role="complementary">
+
+            	<ul class="nav bs-sidenav">
+            		<li>
+            			<a href="#code-gold">HTML</a>
+            			<ul class="nav">
+            				<li><a href="#code-syntax">语法</a></li>
+            				<li><a href="#code-doctype">HTML doctype</a></li>
+            				<li><a href="#code-lang">语言属性</a></li>
+            				<li><a href="#code-encoding">字符编码</a></li>
+            				<li><a href="#code-ie-compatibility-mode">IE兼容模式</a></li>
+            				<li><a href="#code-style-script">引入CSS/JavaScript</a></li>
+            				<li><a href="#code-practicality">实用为王</a></li>
+            				<li><a href="#code-attribute-order">属性顺序</a></li>
+            				<li><a href="#code-boolean-attributes">布尔型属性</a></li>
+            				<li><a href="#code-reducing-markup">减少标签数量</a></li>
+            				<li><a href="#code-javascript">JavaScript生成的标签</a></li>
+            			</ul>
+            		</li>
+            		<li>
+            			<a href="#css-syntax">CSS</a>
+            			<ul class="nav">
+            				<li><a href="#css-syntax">语法</a></li>
+            				<li><a href="#css-declaration-order">声明顺序</a></li>
+            				<li><a href="#css-media-queries">自响应写法</a></li>
+            				<li><a href="#css-prefixed-properties">浏览器兼容</a></li>
+            				<li><a href="#css-single-declarations">单行规则声明</a></li>
+            				<li><a href="#css-comments">注释</a></li>
+            				<li><a href="#css-classes">class命名</a></li>
+            				<li><a href="#css-selectors">class规范</a></li>
+            				<li><a href="#css-organization">代码组织</a></li>
+            			</ul>
+            		</li>
+            	</ul>
+
+            </div>
+
+		</div>
+
+		<div class="col-md-9" role="main">
+
+            <!-- 
+            *
+            * 黄金定律
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section top">
+
+                <h1 id="code-gold" class="page-header">黄金定律</h1>
+                <p>永远遵循同一套代码规范，可以是这里列出的，也可以是自己总结的。不管多少人共同参与同一项目，一定要确保每一行代码都像是一个人编写的。</p>
+
+            </div><!-- lxui-docs-section end -->
+
+			<!-- 
+			*
+			* HTML syntax 语法
+			*********************************************************************************
+			-->
+			<div class="lxui-docs-section">
+
+				<h1 id="code-syntax" class="page-header">HTML语法</h1>
+
+                        <ul class="lxui-docs-ul">
+                            <li>用2个或4个空格来代替制表符（tab），这是唯一能保证在所有代码编辑器中获得一致的展现方法。</li>
+                            <li>嵌套元素应当缩进一次（即2个或4个空格）。</li>
+                            <li>对于属性的定义，确保全部使用双引号，绝不要用单引号。</li>
+                            <li>不要在自闭和元素的尾部添加斜线，例如input/img...</li>
+                        </ul>
+
+                        <div class="bs-example">
+                            <h1>Hello, world!</h1>
+                        </div>
+                        <div class="highlight">
+                            <pre>
+                                <code class="language-html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Page title<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hello-world"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code>
+                            </pre>
+                        </div>
+
+			</div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-doctype 声明
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-doctype" class="page-header">HTML doctype</h1>
+
+                <p>为每个html页面的第一行添加标准模式的声明，这样能够确保在每个浏览器中拥有一致的展现。</p>
+
+                <h3>HTML5 doctype 写法</h3>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="language-html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code>
+                    </pre>
+                </div>
+
+                <h3>XHTML4.01 doctype 写法(IE6推荐)</h3>
+                <p>“ 吐个槽，IE6如果不加这些东西就会在怪异模式（quirks mode）下进行渲染页面，从而更难征服它。”</p>
+                <div class="highlight">
+                    <pre>
+                        <code class="language-html"><span class="cp">&lt;DOCTYPE html PUBLIC "-//W3C//DTD XHTML 4.01 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code>
+                    </pre>
+                </div>
+                
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-lang 语言属性
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-lang" class="page-header">语言属性</h1>
+
+                <p>根据HTML5规范：</p>
+                <blockquote>
+                    <small>强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言。这将有助于语音合成工具确定其所应该采用的发音，有助于翻译工具确定其翻译时所应遵守的规则等等。</small>
+                </blockquote>
+                <p>由于并没有查阅到语言属性在IE6是否有影响，所以IE6+也这么写即可。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="language-html"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh-cn"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code>
+                    </pre>
+                </div> 
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-encoding 字符编码
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-encoding" class="page-header">字符编码</h1>
+
+                <p>通过明确声明字符编码，能够确保浏览器快速并容易的判断页面内容的渲染方式。这样做的好处是，可以避免在 HTML 中使用字符实体标记（character entity），从而全部与文档编码一致（一般采用 UTF-8 编码）。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="html"><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code>
+                    </pre>
+                </div> 
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-ie-compatibility-mode IE兼容模式
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-ie-compatibility-mode" class="page-header">IE 兼容模式</h1>
+
+                <p>IE 支持通过特定的 &lt;meta&gt; 标签来确定绘制当前页面所应该采用的 IE 版本。除非有强烈的特殊需求，否则最好是设置为 edge mode，从而通知 IE 采用其所支持的最新的模式。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="html"><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=Edge"</span><span class="nt">&gt;</span>
+</code>
+                    </pre>
+                </div>
+                <ul class="lxui-docs-ul">
+                    <li>IE=edge - 最佳渲染模式</li>
+                    <li>IE=10 - 均使用 IE 10 的标准渲染模式</li>
+                    <li>IE=EmulateIE10 - IE 10 以上浏览器均使用 IE 10 的标准渲染模式</li>
+                    <li>IE=9 - 均使用 IE 9 的标准渲染模式</li>
+                    <li>IE=EmulateIE9 - IE 9 以上浏览器均使用 IE 9 的标准渲染模式</li>
+                    <li>IE=8 - 均使用 IE 8 的标准渲染模式</li>
+                    <li>IE=EmulateIE8 - IE 8 以上浏览器均使用 IE 8 的标准渲染模式</li>
+                    <li>IE=7 - 均使用 IE 7 的标准渲染模式</li>
+                    <li>IE=EmulateIE7 - IE 7 以上浏览器均使用 IE 7 的标准渲染模式</li>
+                    <li>IE=5 - 均使用 IE 5 的标准渲染模式</li>
+                    <li>IE=EmulateIE7 - IE 5 以上浏览器均使用 IE 5 的标准渲染模式</li>
+                </ul>
+                <p>为什么没有 IE6 ？据说因为微软放弃 IE 6，所以为了照顾到 IE 6 用户，码农只能通过代码一点一点调试了。</p>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-style-script 引入CSS/Javascript
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-style-script" class="page-header">引入CSS/Javascript文件</h1>
+
+                <p>根据 HTML5 规范，在引入 CSS 和 JavaScript 文件时一般不需要指定 type 属性，因为 text/css 和 text/javascript 分别是它们的默认值。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="html"><span class="c">&lt;!-- External CSS --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"code-guide.css"</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- In-document CSS --&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+  <span class="c">/* ... */</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="c">&lt;!-- JavaScript --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"code-guide.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code>
+                    </pre>
+                </div>
+
+                <p>但是如果兼容 IE 6+ 的话就需要指定 type 属性</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="html"><span class="c">&lt;!-- External CSS for ie6+ --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"code-guide.css"</span> <span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- In-document CSS or ie6+ --&gt;</span>
+<span class="nt">&lt;style <span class="na">type=</span><span class="s">"text/css"</span>&gt;</span>
+  <span class="c">/* ... */</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="c">&lt;!-- JavaScript or ie6+ --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"code-guide.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-practicality 实用为王
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-practicality" class="page-header">实用为王</h1>
+
+                <p>尽量遵循 HTML 标准和语义，但是不要以牺牲实用性为代价。任何时候都要尽量使用最少的标签并保持最小的复杂度。</p>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-practicality 属性顺序
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-attribute-order" class="page-header">属性顺序</h1>
+
+                <p>HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读性。</p>
+                <ul class="lxui-docs-ul lxui-color-code">
+                    <li>class</li>
+                    <li>id, name</li>
+                    <li>data-*</li>
+                    <li>src, for, type, href</li>
+                    <li>title, alt</li>
+                    <li>aria-*, role</li>
+                </ul>
+                <p>class 用于标识高度可复用组件，因此应该排在首位。id 用于标识具体组件，应当谨慎使用（例如，页面内的书签），因此排在第二位。</p>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-practicality 布尔型属性
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-boolean-attributes" class="page-header">布尔型属性</h1>
+
+                <p>布尔型属性可以在声明时不赋值。XHTML 规范要求为其赋值，但是 HTML5 规范不需要。</p>
+
+                <blockquote>
+                    <small>元素的布尔型属性如果有值，就是 true，如果没有值，就是 false。</small>
+                </blockquote>
+                
+                <div class="highlight">
+                    <pre>
+                        <code class="html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">checked</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;select&gt;</span>
+  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">selected</span><span class="nt">&gt;</span>1<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-practicality 减少标签数量
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-reducing-markup" class="page-header">减少标签数量</h1>
+
+                <p>编写 HTML 代码时，尽量避免多余的父元素。很多时候，这需要迭代和重构来实现。请看下面的案例。</p>
+                
+                <div class="highlight">
+                    <pre>
+                        <code class="html"><span class="c">&lt;!-- 一般 --&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"avatar"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+
+<span class="c">&lt;!-- 更好 --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"avatar"</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML code-javascript Javascript生成的标签
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="code-javascript" class="page-header">Javascript生成的标签</h1>
+
+                <p>通过 JavaScript 生成的标签让内容变得不易查找、编辑，并且降低性能。能避免时尽量避免。</p>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!--
+            *********************************************************************************
+            //////////////////////////////////  CSS  ////////////////////////////////////////
+            =================================================================================
+            -->
+
+            <!-- 
+            *
+            * HTML css-syntax css语法
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-syntax" class="page-header">CSS语法</h1>
+
+                <ul class="lxui-docs-ul">
+                    <li>用2个或4个空格来代替制表符（tab），这是唯一能保证在所有代码编辑器中获得一致的展现方法。</li>
+                    <li>多个classname同组时，将单独的classname单独放在一行。</li>
+                    <li>为了代码的易读性，在每个classname的左花括号前添加一个空格。</li>
+                    <li>定义的class的右花括号应当单独成行。</li>
+                    <li>每条声明语句的 : 后应该插入一个空格。</li>
+                    <li>为了获得更准确的错误报告，每条style都应该独占一行。</li>
+                    <li>所有定义style语句都应当以分号结尾。最后一条定义style语句后面的分号是可选的，但是，如果省略这个分号，你的代码可能更易出错。</li>
+                    <li>对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格（例如，<code>box-shadow</code>）。</li>
+                    <li>不要在 <code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code> 或 <code>rect()</code> 值的内部的逗号后面插入空格。这样利于从多个属性值（既加逗号也加空格）中区分多个颜色值（只加逗号，不加空格）。</li>
+                    <li>对于属性值或颜色参数，省略小于 1 的小数前面的 0 （例如，<code>.5</code> 代替 <code>0.5</code>；<code>-.5px</code> 代替 <code>-0.5px</code>）</li>
+                    <li>IE9以下是不支持rgba(),所以如果在此条件下开发则需要使用十六进制颜色值。（例如，<code>#ff0000</code>）</li>
+                    <li>十六进制值应该全部小写，例如，<code>#fff</code>。在扫描文档时，小写字符易于分辨，因为他们的形式更易于区分。并且尽量使用简写形式的十六进制值，例如，用 <code>#fff</code> 代替 <code>#ffffff</code>。</li>
+                    <li>为class的属性添加双引号，例如，<code>input[type="text"]</code>。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。</li>
+                </ul>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="css"><span class="c">/* CSS 一般写法 */</span>
+<span class="nc">.selector</span><span class="o">,</span> <span class="nc">.selector-secondary</span><span class="o">,</span> <span class="nc">.selector</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">text</span><span class="o">]</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span><span class="m">15px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span><span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">);</span>
+  <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span><span class="m">0px</span> <span class="m">1px</span> <span class="m">2px</span> <span class="m">#CCC</span><span class="o">,</span><span class="k">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">#FFFFFF</span>
+<span class="p">}</span>
+
+<span class="c">/* CSS 更好的写法 */</span>
+<span class="nc">.selector</span><span class="o">,</span>
+<span class="nc">.selector-secondary</span><span class="o">,</span>
+<span class="nc">.selector</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">"text"</span><span class="o">]</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,.</span><span class="m">5</span><span class="p">);</span>
+  <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="m">#ccc</span><span class="o">,</span> <span class="k">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-declaration-order 声明顺序
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-declaration-order" class="page-header">声明顺序</h1>
+
+                <p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
+                <ol class="lxui-docs-ul">
+                    <li>定位(position)</li>
+                    <li>区块(box-model)</li>
+                    <li>文字样式(font style)</li>
+                    <li>视觉样式(visual)</li>
+                </ol>
+                <p>由于定位（position）可以从正常的文档流中移除元素，并且还能覆盖区块（box model）相关的样式，因此排在首位。区块排在第二位，因为它决定了组件的尺寸和位置。</p>
+                <p>其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="css"><span class="nc">.declaration-order</span> <span class="p">{</span>
+  <span class="c">/* Position */</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">z-index</span><span class="o">:</span> <span class="m">100</span><span class="p">;</span>
+
+  <span class="c">/* Box-model */</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+
+  <span class="c">/* font style */</span>
+  <span class="k">font</span><span class="o">:</span> <span class="k">normal</span> <span class="m">13px</span> <span class="s2">"Helvetica Neue"</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">5</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#333</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+
+  <span class="c">/* Visual */</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#f5f5f5</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#e5e5e5</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+
+  <span class="c">/* Misc */</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-media-queries 自响应写法
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-media-queries" class="page-header">自响应写法</h1>
+
+                <p>将响应样式放在尽可能相关样式的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。下面给出一个典型的实例。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="css"><span class="nc">.element</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.element-avatar</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.element-selected</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+
+<span class="k">@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">480px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nc">.element</span> <span class="p">{</span> <span class="o">...</span><span class="p">}</span>
+  <span class="nc">.element-avatar</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+  <span class="nc">.element-selected</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-prefixed-properties 浏览器兼容
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-prefixed-properties" class="page-header">浏览器兼容</h1>
+
+                <p>当使用特定浏览器的带有前缀的属性时，通过缩进的方式，让每个属性的值在垂直方向对其，这样便于多行编辑。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="css"><span class="c">/* 浏览器兼容写法 css3 */</span>
+<span class="nc">.selector</span> <span class="p">{</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,.</span><span class="m">15</span><span class="p">);</span> <span class="c">/* chrome && safari */</span>          
+     <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,.</span><span class="m">15</span><span class="p">);</span> <span class="c">/* firefox */</span>
+       <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,.</span><span class="m">15</span><span class="p">);</span> <span class="c">/* opera */</span>
+          <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,.</span><span class="m">15</span><span class="p">);</span> <span class="c">/* css3 标准属性 */</span>
+<span class="p">}</span>
+
+<span class="c">/* IE hack 写法 */</span>
+<span class="nc">.selector</span> <span class="p">{</span>
+   <span class="n">color</span><span class="o">:</span> <span class="m">#ff0000</span><span class="p">;</span>
+   <span class="n">color</span><span class="o">:</span> <span class="m">#ff0000 !important</span><span class="p">;</span> <span class="c">/* IE7+/Firefox/chrome/safari/opera */</span>
+  <span class="n">_color</span><span class="o">:</span> <span class="m">#ff0000</span><span class="p">;</span> <span class="c">/* IE6 */</span>
+  <span class="n">*color</span><span class="o">:</span> <span class="m">#ff0000</span><span class="p">;</span> <span class="c">/* IE6、IE7 */</span>
+ <span class="n">*+color</span><span class="o">:</span> <span class="m">#ff0000</span><span class="p">;</span> <span class="c">/* IE7 */</span>
+   <span class="n">color</span><span class="o">:</span> <span class="m">#ff0000\9</span><span class="p">;</span> <span class="c">/* IE6、IE7、IE8 */</span>
+   <span class="n">color</span><span class="o">:</span> <span class="m">#ff0000\0</span><span class="p">;</span> <span class="c">/* IE8 */</span>
+<span class="p">}</span>
+
+<span class="c">/* IE 条件注释 */</span>
+<span class="c">&lt;!--[if IE]&gt;</span><span class="n">IE浏览器可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 6]&gt;</span><span class="n">仅IE6可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if lt IE 6]&gt;</span><span class="n">IE6以及IE6以下版本可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if gte IE 6]&gt;</span><span class="n">IE6以及IE6以上版本可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 7]&gt;</span><span class="n">仅IE7可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if lt IE 7]&gt;</span><span class="n">IE7以及IE7以下版本可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if gte IE 7]&gt;</span><span class="n">IE7以及IE7以上版本可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 8]&gt;</span><span class="n">仅IE8可识别</span><span class="c">&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 9]&gt;</span><span class="n">仅IE9可识别</span><span class="c">&lt;![endif]--&gt;</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-single-declarations 单行规则声明
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-single-declarations" class="page-header">单行规则声明</h1>
+
+                <p>对于<b>只包含一条声明</b>的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
+
+                <p>这样做的关键因素是为了错误检测 -- 例如，CSS 校验器指出在 183 行有语法错误。如果是单行声明，你就不会忽略这个错误；如果是多行声明的话，你就要仔细分析了。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="css"><span class="c">/* 单行声明在同一行写 */</span>
+<span class="nc">.span1</span> <span class="p">{</span> <span class="k">width</span><span class="o">:</span> <span class="m">60px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.span2</span> <span class="p">{</span> <span class="k">width</span><span class="o">:</span> <span class="m">140px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.span3</span> <span class="p">{</span> <span class="k">width</span><span class="o">:</span> <span class="m">220px</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* 多行声明，一行一个声明 */</span>
+<span class="nc">.sprite</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(../img/sprite.png)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.icon</span>           <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.icon-home</span>      <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-20px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.icon-account</span>   <span class="p">{</span> <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-40px</span><span class="p">;</span> <span class="p">}</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-comments 注释
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-comments" class="page-header">注释</h1>
+
+                <p>代码是由人编写并维护的。请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。</p>
+
+                <p>对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="css"><span class="c">/* 错误例子 */</span>
+<span class="c">/* Modal header */</span>
+<span class="nc">.modal-header</span> <span class="p">{</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="c">/* 正确例子 */</span>
+<span class="c">/* Wrapping element for .modal-title and .modal-close */</span>
+<span class="nc">.modal-header</span> <span class="p">{</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-classes Class命名
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-classes" class="page-header">Class命名</h1>
+
+                <ul class="lxui-docs-ul">
+                    <li>class 名称中只能出现小写字符和破折号（dashe）（不是下划线，也不是驼峰命名法）。破折号应当用于相关 class 的命名（类似于命名空间）（例如，<code>.btn</code> 和 <code>.btn-danger</code>）。</li>
+                    <li>避免过度任意的简写。<code>.btn</code> 代表 button，但是 <code>.s</code> 不能表达任何意思。</li>
+                    <li>class 名称应当尽可能短，并且意义明确</li>
+                    <li>使用有意义的名称。使用有组织的或目的明确的名称，不要使用表现形式（presentational）的名称</li>
+                    <li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
+                    <li>使用 <code>.js-*</code> class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
+                </ul>
+
+                <p>对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="css"><span class="c">/* 错误例子 */</span>
+<span class="nc">.t</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.red</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.header</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+
+<span class="c">/* 正确例子 */</span>
+<span class="nc">.tweet</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.important</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.tweet-header</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</code>
+                    </pre>
+                </div>
+
+                <p>CSS命名参考（以下仅为参考，如果不是特例，尽可能用通用标签来定义，例如：<code>ul > li > a { ... }</code>）</p>
+
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>CSS命名参考</th>
+                        <th>说明</th>
+                    </tr>
+                        <td>wrap/wrapper</td>
+                        <td>页面外围控制整体布局宽度</td>
+                    </tr>
+                    <tr>
+                        <td>container/content</td>
+                        <td>容器,用于最外层</td>
+                    </tr>
+                    <tr>
+                        <td>layout</td>
+                        <td>布局</td>
+                    </tr>
+                    <tr>
+                        <td>head/header</td>
+                        <td>页头部分</td>
+                    </tr>
+                    <tr>
+                        <td>foot/footer</td>
+                        <td>页脚部分</td>
+                    </tr>
+                    <tr>
+                        <td>nav</td>
+                        <td>主导航</td>
+                    </tr>
+                    <tr>
+                        <td>subnav</td>
+                        <td>二级导航</td>
+                    </tr>
+                    <tr>
+                        <td>menu</td>
+                        <td>菜单</td>
+                    </tr>
+                    <tr>
+                        <td>submenu</td>
+                        <td>字菜单</td>
+                    </tr>
+                    <tr>
+                        <td>sideBar</td>
+                        <td>侧栏</td>
+                    </tr>
+                    <tr>
+                        <td>main</td>
+                        <td>页面主题</td>
+                    </tr>
+                    <tr>
+                        <td>tag</td>
+                        <td>标签</td>
+                    </tr>
+                    <tr>
+                        <td>msg/message</td>
+                        <td>提示信息/消息</td>
+                    </tr>
+                    <tr>
+                        <td>notice</td>
+                        <td>通知</td>
+                    </tr>
+                    <tr>
+                        <td>tips</td>
+                        <td>小技巧</td>
+                    </tr>
+                    <tr>
+                        <td>vote</td>
+                        <td>投票</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>标题</td>
+                    </tr>
+                    <tr>
+                        <td>login</td>
+                        <td>登陆</td>
+                    </tr>
+                    <tr>
+                        <td>register</td>
+                        <td>登陆</td>
+                    </tr>
+                    <tr>
+                        <td>search</td>
+                        <td>搜索</td>
+                    </tr>
+                    <tr>
+                        <td>copyright</td>
+                        <td>版权信息</td>
+                    </tr>
+                    <tr>
+                        <td>logo</td>
+                        <td>网站LOGO标志</td>
+                    </tr>
+                    <tr>
+                        <td>siteinfo</td>
+                        <td>网站信息</td>
+                    </tr>
+                    <tr>
+                        <td>sitemap</td>
+                        <td>网站地图</td>
+                    </tr>
+                    <tr>
+                        <td>service</td>
+                        <td>服务</td>
+                    </tr>
+                    <tr>
+                        <td>arrow</td>
+                        <td>角/箭头</td>
+                    </tr>
+                    <tr>
+                        <td>guild</td>
+                        <td>指南</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td>列表</td>
+                    </tr>
+                    <tr>
+                        <td>tool/toolbar</td>
+                        <td>工具栏</td>
+                    </tr>
+                </table>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-selectors class规范
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-selectors" class="page-header">Class规范</h1>
+
+                <h3>简写属性</h3>
+                <p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。常见的滥用简写属性声明的情况如下：</p>
+                <ul class="lxui-docs-ul">
+                    <li><code>padding</code></li>
+                    <li><code>margin</code></li>
+                    <li><code>font</code></li>
+                    <li><code>background</code></li>
+                    <li><code>border</code></li>
+                    <li><code>border-radius</code></li>
+                </ul>
+
+                <p>大部分情况下，我们不需要为简写形式的属性声明指定所有值。例如，HTML 的 heading 元素只需要设置上、下边距（margin）的值，因此，在必要的时候，只需覆盖这两个值就可以。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <pre><code class="css"><span class="c">/* 一般写法 */</span>
+<span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span> <span class="m">3px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* 更好写法 */</span>
+<span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+  <span class="k">background-image</span><span class="o">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span>
+  <span class="k">border-top</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="k">border-top</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+                    </pre>
+                </div>
+
+                <h3>style定义</h3>
+
+                <ul class="lxui-docs-ul">
+                    <li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
+                    <li>对于经常出现的组件，避免使用属性标签（例如，<code>[class^="..."]</code>）。浏览器的性能会受到这些因素的影响。</li>
+                    <li>定义class要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3 。</li>
+                    <li>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）（例如，不使用带前缀的 class 时 -- 前缀类似于命名空间）。</li>
+                </ul>
+
+                <div class="highlight">
+                    <pre>
+                        <pre><code class="css"><span class="c">/* 错误写法 */</span>
+<span class="nt">span</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.page-container</span> <span class="nf">#stream</span> <span class="nc">.stream-item</span> <span class="nc">.tweet</span> <span class="nc">.tweet-header</span> <span class="nc">.username</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.avatar</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+
+<span class="c">/* 正确写法 */</span>
+<span class="nc">.avatar</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.tweet-header</span> <span class="nc">.username</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="nc">.tweet</span> <span class="nc">.avatar</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</code></pre>
+                    </pre>
+                </div>
+
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * HTML css-organization 代码组织
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="css-organization" class="page-header">代码组织</h1>
+
+                <ul class="lxui-docs-ul">
+                    <li>已组件为单位组织代码。</li>
+                    <li>制定一致的注释规范。</li>
+                    <li>使用一致的空白符将代码分隔成块，这样利于扫描较大的文档。</li>
+                    <li>如果使用了多个 CSS 文件，将其按照组件而非页面的形式分拆，因为页面会被重组，而组件只会被移动。</li>
+                </ul>
+
+                <div class="highlight">
+                    <pre>
+                        <pre><code class="css"><span class="c">/*</span>
+<span class="c"> * Component section heading</span>
+<span class="c"> */</span>
+
+<span class="nc">.element</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+
+
+<span class="c">/*</span>
+<span class="c"> * Component section heading</span>
+<span class="c"> *</span>
+<span class="c"> * Sometimes you need to include optional context for the entire component. Do that up here if it's important enough.</span>
+<span class="c"> */</span>
+
+<span class="nc">.element</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+
+<span class="c">/* Contextual sub-component or modifer */</span>
+<span class="nc">.element-heading</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</code></pre>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+
+		</div>
+
+	</div>
+
+</div>
+
+{include="footer"}

@@ -1,0 +1,2001 @@
+{include="header-ie"}
+
+<div class="container mt50">
+
+  <div class="row-fluid clearfix">
+    
+    <div class="span3 pull-left">
+      <div class="sidebar-nav">
+        <ul class="nav nav-list">
+
+          <li class="nav-header">准备工作</li>
+          <li><a href="#ready">如何兼容IE6</a></li>
+          <li class="space-10"></li>
+          <li class="nav-header">兼容组件</li>
+          <li><a href="#guild">栅格系统</a></li>
+          <li><a href="#fonts">文字段落</a></li>
+          <li><a href="#forms">表单</a></li>
+          <li><a href="#buttons">按钮</a></li>
+          <li><a href="#dropmenu">下拉菜单</a></li>
+          <li><a href="#icon">图标</a></li>
+          <li><a href="#tables">表格</a></li>
+          <li><a href="#tab">标签页</a></li>
+          <li><a href="#navbar">导航条</a></li>
+          <li><a href="#breadcrumbs">路径导航</a></li>
+          <li><a href="#pagination">分页</a></li>
+          <li><a href="#labels">标签</a></li>
+          <li><a href="#alerts">警告框</a></li>
+          <li><a href="#progress">进度条</a></li>
+          <li><a href="#list-group">列表组</a></li>
+          <li><a href="#panels">窗口面板</a></li>
+          
+          <li class="space-10"></li>
+          <li class="nav-header">JavaScript</li>
+          <li><a href="#js-dropdowns">下拉菜单</a></li>
+          <li><a href="#js-tabs">标签页</a></li>
+          <li><a href="#js-alerts">警告框</a></li>
+          <li><a href="#js-tooltips">工具提示</a></li>
+          <li><a href="#js-modals">弹出层</a></li>
+          <li><a href="#js-carousel">轮播</a></li>        
+          
+          <li class="space-10"></li>
+          <li class="nav-header">第三方插件</li>
+          <li><a href="#ueditor">富文本编辑器</a></li>
+          <li><a href="#highcharts">图表插件</a></li>
+          
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+
+    <div class="span9 pull-left">
+        
+      <!-- 
+      *
+      * IE6 如何兼容
+      *********************************************************************************
+      -->
+      <div class="lxui-docs-section top">
+
+          <h1 id="ready" class="page-header">准备工作</h1>
+
+          <p>LXUI IE6+ 以 Bsie 为基础打造，在此非常感谢作者 <a href="https://github.com/ddouble" target="_blank">ddouble</a> 提供的非常棒的解决方案。</p>
+
+          <div class="bs-callout bs-callout-warning">
+            <h4>如何兼容IE6+</h4>
+            <p>兼容IE6+除了LXUI基本的文件外，还需要引入其他兼容IE的文件。</p>
+          </div>
+
+          <p>LXUI IE6+目录结构如下：</p>
+          <div class="highlight highlight-ie">
+            <code>LXUI/<br>
+├── image/ (图片目录)<br>
+├── css/<br>
+│   ├── lxui.css<br>
+│   ├── lxui.min.css<br>
+│   ├── lxui-ie6.css (兼容IE6+)<br>
+│   └── lxui-ie6.min.css (兼容IE6+)<br>
+├── js/<br>
+│   ├── lxui.js<br>
+│   ├── lxui.min.js<br>
+│   ├── lxui-ie.js (兼容IE6+)<br>
+│   └── lxui-ie.min.js (兼容IE6+)<br>
+├── fonts/ (字体图标 IE6+ 不兼容)<br>
+│   ├── glyphicons-halflings-regular.eot<br>
+│   ├── glyphicons-halflings-regular.svg<br>
+│   ├── glyphicons-halflings-regular.ttf<br>
+│   └── glyphicons-halflings-regular.woff<br>
+└── plugins/</code>
+        </div>
+
+          <p>如果你已引入了LXUI的框架，如果考虑兼容 IE6+，只需要引入 <b>lxui-ie6.css</b> 和 <b>lxui-ie.js</b> 文件即可。就这么简单。当然，你可以优先选择引入 压缩版 的文件。</p>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * IE6 兼容组件
+      *********************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+          <h1 class="page-header">兼容组件</h1>
+
+          <p>虽然 Bsie 已经可以让大部分LXUI组件兼容IE6，但仍有部分无法实现，以下我们整理出兼容ie6+的组件，还有...我们会持续更新，争取兼容LXUI所有的组件及javascript事件。</p>
+
+          <h3 id="guild" class="page-title">栅格系统</h3>
+
+          <p>栅格系统在IE6+是无法正常显示的，所以选择用替代方案解决，用 <code>.span*</code> 来取替 <code>.col-md-*</code>标签。</p>
+
+          <div class="bs-example-grid grid-ie">
+              
+            <div class="row show-grid">
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+              <div class="span1">1</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span2">2</div>
+              <div class="span3">3</div>
+              <div class="span7">7</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span6">6</div>
+              <div class="span6">6</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span7">7</div>
+              <div class="span5">5</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span8">8</div>
+              <div class="span4">4</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span9">9</div>
+              <div class="span3">3</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span10">10</div>
+              <div class="span2">2</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span11">11</div>
+              <div class="span1">1</div>
+            </div>
+            <div class="row show-grid">
+              <div class="span12">12</div>
+            </div>
+
+          </div>
+          
+
+          <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p>栅格兼容方案不使用 <code>.col-md*</code>,而是使用 <code>.span1-11</code>。<br>栅格之间的距离是父层2%。</p>
+          </div>
+
+          <div class="highlight highlight-ie">
+  <code style="margin-left:-5px"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span1"</span>&gt;</span>.span1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<br>
+<br>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+<br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span8"</span>&gt;</span>.span8<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span4"</span>&gt;</span>.span4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<br>
+<br>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+<br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span4"</span>&gt;</span>.span4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span4"</span>&gt;</span>.span4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+  &nbsp&nbsp&nbsp&nbsp<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"span4"</span>&gt;</span>.span4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code>
+                    
+        </div>
+
+        <!-- 兼容组件 文字段落-->
+        <h3 id="fonts" class="page-title">文字段落</h3>
+
+        <h5><strong>标题</strong> - <a href="ui.php#type-headings">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+              <table class="table">
+                <tbody>
+                    <tr>
+                      <td style="border-top:none"><h1>h1. 我是一个标题</h1></td>
+                      <td style="border-top:none" class="info">font-size: 36px</td>
+                    </tr>
+                    <tr>
+                      <td><h2>h2. 我是一个标题</h2></td>
+                      <td class="info">font-size: 30px</td>
+                    </tr>
+                    <tr>
+                      <td><h3>h3. 我是一个标题</h3></td>
+                      <td class="info">font-size: 24px</td>
+                    </tr>
+                    <tr>
+                      <td><h4>h4. 我是一个标题</h4></td>
+                      <td class="info">font-size: 18px</td>
+                    </tr>
+                    <tr>
+                      <td><h5>h5. 我是一个标题</h5></td>
+                      <td class="info">font-size: 14px</td>
+                    </tr>
+                    <tr>
+                      <td><h6>h6. 我是一个标题</h6></td>
+                      <td class="info">font-size: 12px</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <h5><strong>列表</strong> - <a href="ui.php#type-lists">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+
+          <ul>
+                <li>阳光下的泡沫，是彩色的</li>
+                <li>就像被骗的我，是幸福的</li>
+                <li>追究什么对错，你的谎言，基于你还爱我</li>
+                <li>美丽的泡沫，虽然一刹花火</li>
+                <li>你所有承诺，虽然都太脆弱
+                    <ul>
+                      <li>但爱像泡沫，如果能够看破，有什么难过</li>
+                      <li>早该知道泡沫，一触就破</li>
+                      <li>就像已伤的心，不胜折磨</li>
+                      <li>也不是谁的错，谎言再多，基于你还爱我</li>
+                    </ul>
+                </li>
+                <li>美丽的泡沫，虽然一刹花火</li>
+                <li>你所有承诺，虽然都太脆弱</li>
+                <li>爱本是泡沫，如果能够看破，有什么难过</li>
+          </ul>
+
+          <hr>
+
+          <ol>
+            <li>把冰箱门打开</li>
+            <li>把大象放进去</li>
+            <li>把门关上</li>
+          </ol>
+
+          <hr>
+
+          <dl>
+                <dt>累觉不爱</dt>
+                <dd>很累，感觉自己不会再爱了。</dd>
+                <dt>不明觉厉</dt>
+                <dd>虽然不明白是什么，但是感觉好厉害啊
+虽然不明白他（你）在说什么，但是感觉很厉害的样子。</dd>
+                <dd>对于某技术高超者发表的见解表示赞叹（褒义），或只是觉得对发表的见解不明所以的应付（贬义）。</dd>
+                <dt>喜大普奔</dt>
+                <dd>喜闻乐见、大快人心、普天同庆、奔走相告。</dd>
+          </dl>
+
+        </div>
+
+
+
+        <!-- 兼容组件 - 表单 -->
+        <h3 id="forms" class="page-title">表单</h3>
+
+        <p><strong>输入框类型</strong> - <a href="ui.php#type-text">代码参考</a></p>
+
+        <div class="bs-example-ie">
+
+          <form role="form">
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">文本框</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="输入文本内容">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">密码框</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="输入密码">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">多行文本框</label>
+                      <fieldset>
+                      <div>
+                      <textarea class="form-control" rows="3" name="content"></textarea>
+                      </div>
+                      </fieldset>                   
+                    </div>
+          </form>            
+
+        </div>
+
+        <div class="highlight highlight-ie">
+        <code>
+        <span class="c" style="margin-left:-5px;">&lt;--
+        <br>
+        * 多行文本框在ie6下存在一些bug，所以为了保证正确样式，需要按照下例编写 
+        <br>
+        * fieldset 和 div 标签必须添加
+        <br>--&gt;</span>
+    <br>
+        <span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span>
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span>
+  <br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">fieldset</span>&gt;</span>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">div</span>&gt;</span>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">name</span>=<span class="value">"content"</span>&gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/<span class="title">fieldset</span>&gt;</span>
+    <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <br>
+<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p>兼容ie6的 <code>textarea</code>必须按照上例层级添加 <code>fieldset</code> 和 <code>div</code> 标签</p>
+        </div>
+
+        <h5><strong>输入框样式</strong> - <a href="ui.php#type-style">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form class="bs-docs-example form-horizontal">
+            <div class="form-group has-success">
+              <label class="control-label" for="inputSuccess">输入框 - 成功</label>
+              <input type="text" class="form-control" id="inputSuccess">
+            </div>
+            <div class="form-group has-warning">
+              <label class="control-label" for="inputWarning">输入框 - 警告</label>
+              <input type="text" class="form-control" id="inputWarning">
+            </div>
+            <div class="form-group has-error">
+              <label class="control-label" for="inputError">输入框 - 错误</label>
+              <input type="text" class="form-control" id="inputError">
+            </div>
+          </form>
+        </div>
+
+        <h5><strong>选择文件(上传)</strong> - <a href="ui.php#type-upload">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form role="form">
+                  <div class="form-group">
+                    <label>默认</label>
+                    <input type="file" id="exampleInputFile">    
+                  </div>
+                  <div class="form-group">
+                    <label>其他样式</label>
+                    
+                    <p style="margin-top:5px;">
+
+                    <span class="btn btn-default fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>选择文件</span>
+                      <input type="file" name="files[]" multiple="">
+                    </span>
+                    
+                    <span class="btn btn-primary fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>选择文件</span>
+                      <input type="file" name="files[]" multiple="">
+                    </span>
+                    
+                    <span class="btn btn-success fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>选择文件</span>
+                      <input type="file" name="files[]" multiple="">
+                    </span>
+                    
+                    <span class="btn btn-info fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>选择文件</span>
+                      <input type="file" name="files[]" multiple="">
+                    </span>
+
+                    <span class="btn btn-warning fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>选择文件</span>
+                      <input type="file" name="files[]" multiple="">
+                    </span>
+
+                    <span class="btn btn-danger fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>选择文件</span>
+                      <input type="file" name="files[]" multiple="">
+                    </span>
+
+                    </p>
+                  </div>
+          </form>
+        </div>
+
+        <h5><strong>单选/多选</strong> - <a href="ui.php#type-radio">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form role="form">
+            <fieldset>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> 信曾哥考试不挂科
+                    </label>
+                  </div>
+                  <br>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> 信春哥原地满血复活
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 信春哥得永生
+                    </label>
+                  </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <p style="margin-top:10px;">多个checkbox同行显示</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form role="form">
+                  <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                  </label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                  </label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                  </label>
+          </form>
+        </div>
+
+        <h5><strong>Select</strong> - <a href="ui.php#type-select">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form role="form">
+                  <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                  <br>
+                  <select multiple="" class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+          </form>
+        </div>
+
+        <h5><strong>输入框组</strong> - <a href="ui.php#type-input-groups">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form role="form">
+                <div class="input-group clearfix">
+                  <span class="input-group-addon">用户名</span>
+                  <input type="text" class="form-control" placeholder="用户名">
+                </div>
+                <br>
+                <div class="input-group clearfix">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon">.00</span>
+                </div>
+                <br>
+                <div class="input-group clearfix">
+                  <span class="input-group-addon">￥</span>
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon">.00</span>
+                </div>
+              </form>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p>在每个 <code>.input-group</code> 后面追加 <code>.clearfix</code> 使输入框组整行显示。</p>
+        </div>
+
+        <p>复选框与单选框</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form>
+ 
+                    <div class="input-group input-ie clearfix">
+                      <span class="input-group-addon">
+                        <input type="checkbox">
+                      </span>
+                      <input type="text" class="form-control">
+                    </div>
+
+                    <br>
+                    <div class="input-group clearfix">
+                      <span class="input-group-addon">
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 
+                      </span>
+                      <input type="text" class="form-control" name="optionsRadios" id="optionsRadios2">
+                    </div>
+
+              </form>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p><code>checkbox</code> 的组合需要在 <code>.input-group</code> 的后面追加 <code>.input-ie</code> 好使复选框的输入框组高度一致。<br>
+            不使用 <code>.col-*</code> 来判断宽度，因ie6限制，所以去掉，即可。
+            书写代码 和 <a href="ui.php#type-input-groups">输入框组</a> 代码一致。</p>
+        </div>
+
+        <p>附加按钮</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form>
+                    <div class="input-group clearfix">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">按钮</button>
+                      </span>
+                      <input type="text" class="form-control">
+                    </div>
+
+                    <br>
+
+                    <div class="input-group clearfix">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">按钮</button>
+                      </span>
+                    </div>
+          </form>
+        </div>
+
+        <p style="margin-top:10px;">带下拉菜单的按钮</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <form role="form">
+   
+                    <div class="input-group clearfix">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">下拉按钮 <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">选项1</a></li>
+                          <li><a href="#">选项2</a></li>
+                          <li><a href="#">选项3</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">附加选项</a></li>
+                        </ul>
+                      </div><!-- /btn-group -->
+                      <input type="text" class="form-control">
+                    </div><!-- /input-group -->
+
+                    <br>
+
+                    <div class="input-group clearfix">
+                      <input type="text" class="form-control">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default btn-theme1 dropdown-toggle" data-toggle="dropdown">下拉按钮 <span class="caret"></span></button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                          <li><a href="#">选项1</a></li>
+                          <li><a href="#">选项2</a></li>
+                          <li><a href="#">选项3</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">附加选项</a></li>
+                        </ul>
+                      </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+
+              </form>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p>上例你已经看到了，当下拉菜单遇到input、select等，均被遮盖，此问题是目前ie6的无解bug。我们会尽快搞定本bug问题。</p>
+        </div>
+
+
+        <!-- 兼容组件 - 按钮 -->
+        <h3 id="buttons" class="page-title">按钮</h3>
+
+        <h5><strong>按钮样式</strong> - <a href="ui.php#buttons-style">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-button-mg">
+                  <h5>默认样式</h5>
+                  <button type="button" class="btn btn-default">默认</button>
+                  <button type="button" class="btn btn-primary">主要</button>
+                  <button type="button" class="btn btn-success">成功</button>
+                  <button type="button" class="btn btn-info">信息</button>
+                  <button type="button" class="btn btn-warning">警告</button>
+                  <button type="button" class="btn btn-danger">危险</button>
+                  <button type="button" class="btn btn-link">链接</button>
+                  <h5>其他样式</h5>
+
+                  <span class="btn-default-ie">
+                    <button type="button" class="btn btn-default btn-theme1">默认</button>
+                  </span>
+                  <span class="btn-primary-ie">
+                    <button type="button" class="btn btn-primary btn-theme1">主要</button>
+                  </span>
+                  <span class="btn-success-ie">
+                    <button type="button" class="btn btn-success btn-theme1">成功</button>
+                  </span>
+                  <span class="btn-info-ie">
+                    <button type="button" class="btn btn-info btn-theme1">信息</button>
+                  </span>
+                  <span class="btn-warning-ie">
+                    <button type="button" class="btn btn-warning btn-theme1">警告</button>
+                  </span>
+                  <span class="btn-danger-ie">
+                    <button type="button" class="btn btn-danger btn-theme1">危险</button>
+                  </span>
+                  <button type="button" class="btn btn-link btn-theme1">链接</button>
+                  
+        </div>
+
+        <div class="highlight highlight-ie">
+        <code>
+        <span class="c" style="margin-left:-5px;">&lt;--
+        <br>
+        * <strong>默认样式不需要任何修改、其他样式需要按照以下代码格式修改才能保证样式兼容性问题。</strong>
+        <br>
+        * 如果使用了 btn-theme1 样式，请在 &lt;button&gt; 父层加入 &lt;span&gt; 标签并给予 .btn-**-ie 类名，为了使在 ie6 ~ ie11 样式都兼容，默认给了 &lt;span&gt; 上的 .btn-**-theme1 属性 float:left ,所以使用时按钮会左对齐，需要自行修改。
+        <br>--&gt;</span>
+    <br>
+        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"btn-default-ie"</span>&gt;</span>
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button" <span class="attribute">class</span>=<span class="value">"btn btn-default btn-theme1"</span>&gt;</span>默认<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+  <br>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+
+<br>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"btn-primary-ie"</span>&gt;</span>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button" <span class="attribute">class</span>=<span class="value">"btn btn-primary btn-theme1"</span>&gt;</span>主要<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<br>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+
+<br>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"btn-success-ie"</span>&gt;</span>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button" <span class="attribute">class</span>=<span class="value">"btn btn-success btn-theme1"</span>&gt;</span>成功<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<br>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+
+<br>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"btn-info-ie"</span>&gt;</span>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button" <span class="attribute">class</span>=<span class="value">"btn btn-info btn-theme1"</span>&gt;</span>信息<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<br>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+
+<br>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"btn-warning-ie"</span>&gt;</span>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button" <span class="attribute">class</span>=<span class="value">"btn btn-warning btn-theme1"</span>&gt;</span>警告<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<br>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+
+<br>
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"btn-danger-ie"</span>&gt;</span>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button" <span class="attribute">class</span>=<span class="value">"btn btn-danger btn-theme1"</span>&gt;</span>危险<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<br>
+<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+
+
+</code>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p>为了兼容IE6+，在使用 <code>btn-theme1</code> 的按钮样式时需要 在父层添加 <code>span</code> 标签，并且加上 <code>.btn-**-ie</code> 类。</p>
+        </div>
+
+
+        <h5><strong>按钮组</strong> - <a href="ui.php#buttons-group">代码参考</a></h5>
+
+        <p style="margin-top:10px">按钮工具栏</p>
+
+        <div class="bs-example-ie clearfix">
+            <div class="btn-toolbar" role="toolbar" style="margin: 0;">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default">1</button>
+                    <button type="button" class="btn btn-default">2</button>
+                    <button type="button" class="btn btn-default">3</button>
+                    <button type="button" class="btn btn-default">4</button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default">5</button>
+                    <button type="button" class="btn btn-default">6</button>
+                    <button type="button" class="btn btn-default">7</button>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default">8</button>
+                  </div>
+                </div>
+        </div>
+
+        <p style="margin-top:10px">按钮组嵌套下拉菜单</p>
+
+        <div class="bs-example-ie clearfix">
+            <div class="btn-group">
+                  <button type="button" class="btn btn-default">1</button>
+                  <button type="button" class="btn btn-default">2</button>
+
+                  <div class="btn-group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      下拉菜单
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
+                      <li><a href="#">选项1</a></li>
+                      <li><a href="#">选项2</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+
+        <!-- 兼容组件 - 下拉菜单 -->
+        <h3 id="dropmenu" class="page-title">下拉菜单</h3>
+
+        <h5><strong>样式</strong> - <a href="ui.php#dropdowns-style">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-dropdown-height clearfix">
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    下拉菜单
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display:block">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">选项1</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">选项2</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">选项3</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">附加选项</a></li>
+                  </ul>
+                </div>
+        </div>
+
+        <!-- 兼容组件 - 图标 -->
+        <h3 id="dropmenu" class="page-title">图标</h3>
+
+        <h5><strong>图标类型</strong> - <a href="ui.php#glyphicons-image">代码参考</a></h5>
+
+        <div class="bs-example-ie clearfix">
+                <div class="btn-toolbar" role="toolbar">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default">
+                      <div class="glyphicon-image glyphicon-img-plus"></div> 
+                    </button>
+                    <button type="button" class="btn btn-default">
+                      <div class="glyphicon-image glyphicon-img-minus"></div> 
+                    </button>
+                    <button type="button" class="btn btn-default">
+                      <div class="glyphicon-image glyphicon-img-pen"></div>
+                    </button>
+                  </div>
+                </div>
+        </div>
+
+        <!-- 兼容组件 - 表格 -->
+        <h3 id="tables" class="page-title">表格</h3>
+
+        <h5><strong>表格样式</strong> - <a href="ui.php#tables">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb clearfix">
+            <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#id</th>
+                      <th>姓名</th>
+                      <th>性别</th>
+                      <th>属性</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>春哥</td>
+                      <td>呃...女</td>
+                      <td>原地满血复活，附加属性考试不挂科。</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>曾哥</td>
+                      <td>呃...女</td>
+                      <td>曾爷真英雄，铁血泰史龙。</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>酱油男</td>
+                      <td>男</td>
+                      <td>被动技能，酱油无视。</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+
+        <p style="margin-top:10px;">带边框表格</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+            <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>#id</th>
+                      <th>姓名</th>
+                      <th>性别</th>
+                      <th>属性</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>春哥</td>
+                      <td>呃...女</td>
+                      <td>原地满血复活，附加属性考试不挂科。</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>曾哥</td>
+                      <td>呃...女</td>
+                      <td>曾爷真英雄，铁血泰史龙。</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>酱油男</td>
+                      <td>男</td>
+                      <td>被动技能，酱油无视。</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+
+        <p style="margin-top:10px;">鼠标悬停</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+            <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#id</th>
+                      <th>姓名</th>
+                      <th>性别</th>
+                      <th>属性</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>春哥</td>
+                      <td>呃...女</td>
+                      <td>原地满血复活，附加属性考试不挂科。</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>曾哥</td>
+                      <td>呃...女</td>
+                      <td>曾爷真英雄，铁血泰史龙。</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>酱油男</td>
+                      <td>男</td>
+                      <td>被动技能，酱油无视。</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+
+        <p style="margin-top:10px;">紧缩表格</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+            <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th>#id</th>
+                      <th>姓名</th>
+                      <th>性别</th>
+                      <th>属性</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>春哥</td>
+                      <td>呃...女</td>
+                      <td>原地满血复活，附加属性考试不挂科。</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>曾哥</td>
+                      <td>呃...女</td>
+                      <td>曾爷真英雄，铁血泰史龙。</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>酱油男</td>
+                      <td>男</td>
+                      <td>被动技能，酱油无视。</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+
+        <p style="margin-top:10px;">表格状态</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+            <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Column heading</th>
+                      <th>Column heading</th>
+                      <th>Column heading</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="active">
+                      <td>1</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr class="success">
+                      <td>3</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr class="info">
+                      <td>5</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr class="warning">
+                      <td>7</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                    <tr class="danger">
+                      <td>9</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                      <td>Column content</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+
+        <!-- 兼容组件 - 标签页 -->
+        <h3 id="tab" class="page-title">标签页</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#nav">代码参考</a></h5>
+        
+        <div class="bs-example-ie bs-nb clearfix">
+          <ul class="nav nav-tabs" role="tablist">
+              <li class="active"><a href="#">主页</a></li>
+              <li><a href="#">信息</a></li>
+              <li><a href="#">设置</a></li>
+          </ul>
+        </div>
+
+        <p style="margin-top:10px;">添加下拉菜单</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <ul class="nav nav-tabs" role="tablist">
+                  <li class="active"><a href="#">主页</a></li>
+                  <li><a href="#">消息</a></li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      下拉菜单 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">选项1</a></li>
+                      <li><a href="#">选项2</a></li>
+                      <li><a href="#">选项3</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">附加选项</a></li>
+                    </ul>
+                  </li>
+          </ul>
+        </div>
+      
+
+        <!-- 兼容组件 - 导航条 -->
+        <h3 id="navbar" class="page-title">导航条</h3>
+
+        <p>如果在IE6+的导航条上增加搜索组件，需要单独编写css适配导航条。</p>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#navbar">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+          <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid clearfix">
+              <!-- logo和手机窗口的菜单 -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">响应式菜单</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+              </div>
+
+              <!-- 包括链接、表单和下拉菜单 -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">链接</a></li>
+                  <li><a href="#">链接</a></li>    
+                </ul>
+                <!--
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="搜索">
+                  </div>
+                  <button type="submit" class="btn btn-default">提交</button>
+                </form>-->
+                <ul class="nav navbar-nav navbar-right">        
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">选项1</a></li>
+                      <li><a href="#">选项2</a></li>
+                      <li><a href="#">选项3</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">附加选项</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        </div>
+
+        <p style="margin-top:10px;">按钮</p>
+
+        <div class="bs-example-ie">
+          <nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid clearfix">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Logo</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+                      <button type="button" class="btn btn-default navbar-btn">注册</button>
+                    </div>
+                  </div>
+          </nav>
+        </div>
+
+        <p style="margin-top:10px;">文本</p>
+
+        <div class="bs-example-ie">
+          <nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid clearfix">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-4">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Logo</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
+                      <p class="navbar-text">需要邀请注册</p>
+                    </div>
+                  </div>
+          </nav>
+        </div>
+
+        <!-- 兼容组件 - 路径导航 -->
+        <h3 id="breadcrumbs" class="page-title">路径导航</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#breadcrumbs">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+                <ol class="breadcrumb">
+                  <li class="active">主页</li>
+                </ol>
+                <ol class="breadcrumb">
+                  <li><a href="#">主页</a></li>
+                  <li class="delimiter">/</li>
+                  <li class="active">资源库</li>
+                </ol>
+                <ol class="breadcrumb" style="margin-bottom: 5px;">
+                  <li><a href="#">主页</a></li>
+                  <li class="delimiter">/</li>
+                  <li><a href="#">资源库</a></li>
+                  <li class="delimiter">/</li>
+                  <li class="active">数据源</li>
+                </ol>
+        </div>
+        <div class="highlight highlight-ie clearfix">
+          <code><span class="nt" style="margin-left:-5px;">&lt;ol</span> <span class="na">class=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>主页<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;li&gt;</span></span>&#047;<span class="nt">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>资源库<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;li&gt;</span></span>&#047;<span class="nt">&lt;/li&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>数据源<span class="nt">&lt;/li&gt;</span><br>
+<span class="nt">&lt;/ol&gt;</span>
+</code>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p>由于ie6+不支持 <code>::before</code> 属性，所以需要手动增加分隔符号，例如 <code>/</code> 或 <code>|</code><br>分隔符号的 <code>li</code> 的class 名称是 <code>.delimiter</code></p>
+        </div>
+
+        <!-- 兼容组件 - 分页 -->
+        <h3 id="breadcrumbs" class="page-title">分页</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#pagination">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+          <ul class="pagination">
+                  <li><a href="#">«</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+          </ul>
+        </div>
+
+        <p style="margin-top:10px;">禁用和激活状态</p>
+
+        <div class="bs-example-ie">
+          <ul class="pagination">
+                  <li class="disabled">«</li>
+                  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+          </ul>
+        </div>
+
+        <p style="margin-top:10px;">翻页</p>
+
+        <div class="bs-example-ie">
+          <ul class="pager">
+                  <li><a href="#">上一页</a></li>
+                  <li><a href="#">下一页</a></li>
+                </ul>
+        </div>
+
+        <p style="margin-top:10px;">两端对齐</p>
+
+        <div class="bs-example-ie">
+          <ul class="pager">
+                  <li class="previous"><a href="#">← Older</a></li>
+                  <li class="next"><a href="#">Newer →</a></li>
+          </ul>
+        </div>
+
+        <!-- 兼容组件 - 标签 -->
+        <h3 id="labels" class="page-title">标签</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#labels">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+          <div class="bs-hfont">
+                <h1>我是标题你看没看到 <span class="label label-default">New</span></h1>
+                <h2>我是标题你看没看到 <span class="label label-default">New</span></h2>
+                <h3>我是标题你看没看到 <span class="label label-default">New</span></h3>
+                <h4>我是标题你看没看到 <span class="label label-default">New</span></h4>
+                <h5>我是标题你看没看到 <span class="label label-default">New</span></h5>
+                <h6>我是标题你看没看到 <span class="label label-default">New</span></h6>
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">可用的样式</p>
+
+        <div class="bs-example-ie">
+                <span class="label label-default">默认</span>
+                <span class="label label-primary">主要</span>
+                <span class="label label-success">成功</span>
+                <span class="label label-info">信息</span>
+                <span class="label label-warning">警告</span>
+                <span class="label label-danger">危险</span>
+                <p class="bs-p-h"><strong>theme1 的样式</strong></p>
+                <div class="label-theme1">
+                <span class="label label-default">默认</span>
+                <span class="label label-primary">主要</span>
+                <span class="label label-success">成功</span>
+                <span class="label label-info">信息</span>
+                <span class="label label-warning">警告</span>
+                <span class="label label-danger">危险</span>
+                </div>
+        </div>
+
+        <div class="highlight highlight-ie clearfix">
+<code style="margin-left:-5px;"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-default"</span><span class="nt">&gt;</span>默认<span class="nt">&gt;&lt;/span&gt;</span><br>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-primary"</span><span class="nt">&gt;</span>主要<span class="nt">&gt;&lt;/span&gt;</span><br>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-success"</span><span class="nt">&gt;</span>成功<span class="nt">&gt;&lt;/span&gt;</span><br>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-info"</span><span class="nt">&gt;</span>信息<span class="nt">&gt;&lt;/span&gt;</span><br>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-warning"</span><span class="nt">&gt;</span>警告<span class="nt">&gt;&lt;/span&gt;</span><br>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-danger"</span><span class="nt">&gt;</span>危险<span class="nt">&gt;&lt;/span&gt;</span><br><br>
+<span class="c">&lt;!-- 使用theme1样式只需要在父层添加 .label-theme1 即可 --&gt;</span><br>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"label-theme1"</span><span class="nt">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-default"</span><span class="nt">&gt;</span>默认<span class="nt">&gt;&lt;/span&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-primary"</span><span class="nt">&gt;</span>主要<span class="nt">&gt;&lt;/span&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-success"</span><span class="nt">&gt;</span>成功<span class="nt">&gt;&lt;/span&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-info"</span><span class="nt">&gt;</span>信息<span class="nt">&gt;&lt;/span&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-warning"</span><span class="nt">&gt;</span>警告<span class="nt">&gt;&lt;/span&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-danger"</span><span class="nt">&gt;</span>危险<span class="nt">&gt;&lt;/span&gt;</span><br>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意,这里有点不一样</h4>
+            <p>ie6不支持同类定义css,所以需要在 <code>&lt;span&gt;</code> 父层加上 class 为 <code>label-theme1</code> 即可。当然，你也不需要在 <code>label-*</code> 的后面添加 <code>label-theme1</code> 这个了。</p>
+        </div>
+
+        <!-- 兼容组件 - 警告框 -->
+        <h3 id="alerts" class="page-title">警告框</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#alerts">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb">
+                <div class="alert alert-success" role="alert">
+                  <strong>恭喜!</strong> 操作成功
+                </div>
+                <div class="alert alert-info" role="alert">
+                  <strong>稍等!</strong> 处理中...
+                </div>
+                <div class="alert alert-warning" role="alert">
+                  <strong>警告!</strong> 请填写完整后提交
+                </div>
+                <div class="alert alert-danger" role="alert">
+                  <strong>错误!</strong> 数据填写错误
+                </div>
+        </div>
+
+        <p style="margin-top:10px;">可关闭的警告框</p>
+
+        <div class="bs-example-ie bs-nb">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <strong>警告!</strong> 数据填写格式是否检查完整?
+                </div>
+        </div>
+
+        <!-- 兼容组件 - 进度条 -->
+        <h3 id="progress" class="page-title">进度条</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#progress">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+          <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                    <span class="sr-only">60% Complete</span>
+                  </div>
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">带有提示的进度条</p>
+
+        <div class="bs-example-ie">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                    60%
+                  </div>
+                </div>
+        </div>
+
+        <p style="margin-top:10px;">进度条数值较低时</p>
+
+        <div class="bs-example-ie">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    0%
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                    2%
+                  </div>
+                </div>
+        </div>
+
+        <p style="margin-top:10px;">其他样式</p>
+
+        <div class="bs-example-ie">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                    <span class="sr-only">40% Complete (success)</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                    <span class="sr-only">20% Complete</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                    <span class="sr-only">60% Complete (warning)</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                    <span class="sr-only">80% Complete (danger)</span>
+                  </div>
+                </div>
+        </div>
+
+        <!-- 兼容组件 - 列表组 -->
+        <h3 id="list-group" class="page-title">列表组</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#list-group">代码参考</a></h5>
+
+        <div class="bs-example-ie">
+          <ul class="list-group">
+                    <li class="list-group-item">巴西 vs 哥伦比亚</li>
+                    <li class="list-group-item">法国 vs 德国</li>
+                    <li class="list-group-item">荷兰 vs 哥斯达黎加</li>
+                    <li class="list-group-item">阿根廷 vs 比利时</li>
+                    <li class="list-group-item">中国 vs 马其顿</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:10px;">标记</p>
+
+        <div class="bs-example-ie">
+                  <ul class="list-group">
+                    <li class="list-group-item clearfix">
+                      <span class="badge">14</span>
+                      巴西 vs 哥伦比亚
+                    </li>
+                    <li class="list-group-item clearfix">
+                      <span class="badge">2</span>
+                      法国 vs 德国
+                    </li>
+                    <li class="list-group-item clearfix">
+                      <span class="badge">1</span>
+                      荷兰 vs 哥斯达黎加
+                    </li>
+                  </ul>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意</h4>
+            <p>需要在 <code>.list-group-item</code> 后面追加 <code>.clearfix</code> 清除浮动即可保证正常。</p>
+        </div>
+
+        <p style="margin-top:10px;">链接</p>
+
+        <div class="bs-example-ie">
+                  <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                      巴西 vs 哥伦比亚
+                    </a>
+                    <a href="#" class="list-group-item">法国 vs 德国</a>
+                    <a href="#" class="list-group-item">荷兰 vs 哥斯达黎加</a>
+                    <a href="#" class="list-group-item">阿根廷 vs 比利时</a>
+                    <a href="#" class="list-group-item">中国 vs 马其顿</a>
+                  </div>
+        </div>
+
+        <p style="margin-top:10px;">被禁用的条目</p>
+
+        <div class="bs-example-ie">
+                  <div class="list-group">
+                    <a href="#" class="list-group-item disabled">
+                      巴西 vs 哥伦比亚
+                    </a>
+                    <a href="#" class="list-group-item">法国 vs 德国</a>
+                    <a href="#" class="list-group-item">荷兰 vs 哥斯达黎加</a>
+                    <a href="#" class="list-group-item">阿根廷 vs 比利时</a>
+                    <a href="#" class="list-group-item">中国 vs 马其顿</a>
+                  </div>
+        </div>
+
+        <p style="margin-top:10px;">状态样式</p>
+
+        <div class="bs-example-ie">
+                  <div class="row">
+                    <div class="span6">
+                      <ul class="list-group">
+                        <li class="list-group-item list-group-item-success">巴西 vs 哥伦比亚</li>
+                        <li class="list-group-item list-group-item-info">法国 vs 德国</li>
+                        <li class="list-group-item list-group-item-warning">荷兰 vs 哥斯达黎加</li>
+                        <li class="list-group-item list-group-item-danger">阿根廷 vs 比利时</li>
+                      </ul>
+                    </div>
+                    <div class="span6">
+                      <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-success">巴西 vs 哥伦比亚</a>
+                        <a href="#" class="list-group-item list-group-item-info">法国 vs 德国</a>
+                        <a href="#" class="list-group-item list-group-item-warning">荷兰 vs 哥斯达黎加</a>
+                        <a href="#" class="list-group-item list-group-item-danger">阿根廷 vs 比利时</a>
+                      </div>
+                    </div>
+                  </div>
+        </div>
+
+        <p style="margin-top:10px;">拓展内容</p>
+
+        <div class="bs-example-ie">
+                  <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                      <h4 class="list-group-item-heading">苏亚雷斯：向基耶利尼和整个足球界道歉</h4>
+                      <p class="list-group-item-text">北京时间7月1日消息，苏亚雷斯在推特上公开向基耶利尼道歉。苏亚雷斯表示，第一，已经深刻反省了自己的行为。第二，我向基耶利尼和整个足球界道歉。第三，我向大家保证再也不会做这种事情。</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">德国任意球逗比战术：穆勒假装摔倒</h4>
+                      <p class="list-group-item-text">德国与阿尔及利亚队的世界杯1/8决赛，夺冠热门德国队迟迟不能打破比赛僵局。时间一分一秒的流逝，德国队在最后关头发起猛攻，一次任意球机会面前，德国队祭出了精心演练的任意球战术……但是演砸了。</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">尼日利亚铁腰遭马图伊迪暴踹</h4>
+                      <p class="list-group-item-text">巴西世界杯1/8决赛战火重燃，法国队迎来尼日利亚的挑战。第55分钟，法国中场马图伊迪飞踹尼日利亚中场奥纳齐，导致对方受伤下场。</p>
+                    </a>
+                  </div>
+        </div>
+
+        <!-- 兼容组件 - 窗口面板 -->
+        <h3 id="panels" class="page-title">窗口面板</h3>
+
+        <h5><strong>基本样式</strong> - <a href="ui.php#panels">代码参考</a></h5>
+
+        <div class="bs-example-ie bs-nb">
+          <div class="panel panel-default">
+                  <div class="panel-body">
+                    Basic panel example
+                  </div>
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">带标题的面板</p>
+
+        <div class="bs-example-ie bs-nb">
+          <div class="panel panel-default">
+                  <div class="panel-heading">Panel heading without title</div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+          </div>
+          <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">带脚注的面板</p>
+
+        <div class="bs-example-ie bs-nb">
+          <div class="panel panel-default">
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                  <div class="panel-footer">Panel footer</div>
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">带表格的面板</p>
+
+        <div class="bs-example-ie bs-nb">
+          <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">Panel heading</div>
+                  <div class="panel-body">
+                    <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  </div>
+
+                  <!-- Table -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+          </div>
+        </div>
+
+        <p style="margin-top:10px;">带列表组的面板</p>
+
+        <div class="bs-example-ie bs-nb">
+          <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">1/8赛程对阵</div>
+                  <div class="panel-body">
+                    <p>世界杯（FIFA World Cup）即国际足联世界杯，是世界上最高荣誉、最高规格、最高含金量、最高知名度的足球比赛，与奥运会并称为全球体育两大最顶级赛事，甚至是转播覆盖率超过奥运会的全球最大体育盛事。</p>
+                  </div>
+
+                  <!-- List group -->
+                  <ul class="list-group">
+                    <li class="list-group-item">巴西 vs 哥伦比亚</li>
+                    <li class="list-group-item">法国 vs 德国</li>
+                    <li class="list-group-item">荷兰 vs 哥斯达黎加</li>
+                    <li class="list-group-item">阿根廷 vs 比利时</li>
+                  </ul>
+          </div>
+        </div>
+        
+        <p style="margin-top:10px;">其他样式</p>
+
+        <div class="bs-example-ie bs-nb">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-warning">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+        </div>
+
+        <p style="margin-top:10px;">theme1 样式</p>
+
+        <div class="bs-example-ie bs-nb">
+            <div class="panel-theme1">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-warning">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+                <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                  </div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight highlight-ie clearfix">
+<code style="margin-left:-5px;">
+<span class="c">&lt;!-- 使用theme1样式只需要在父层添加 .panel-theme1 即可 --&gt;</span><br>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-theme1"</span><span class="nt">&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-primary"</span><span class="nt">&gt;</span>...<span class="nt">&gt;&lt;/div&gt;</span><br>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+            <h4>注意,这里有点不一样</h4>
+            <p>ie6不支持同类定义css,所以需要在 <code>.panel</code> 父层加上 class 为 <code>panel-theme1</code> 即可。当然，你也不需要在 <code>panel-*</code> 的后面添加 <code>label-theme1</code> 这个了。</p>
+        </div>
+
+     </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * IE javascript
+      *********************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+        <h1 id="javascript" class="page-header">JavaScript</h1>
+
+        <!-- javascript - 下拉菜单 -->
+        <h3 id="js-dropdowns" class="page-title">下拉菜单</h3>
+
+        <h5><strong>基本样式</strong> - <a href="javascript.php#dropdowns">使用方法</a></h5>
+
+        <div class="bs-example-ie clearfix">
+          <nav id="navbar-example" class="navbar navbar-default navbar-static clearfix" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Project Name</a>
+                </div>
+                <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 2 <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li id="fat-menu" class="dropdown">
+                      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 3 <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!-- /.nav-collapse -->
+              </div><!-- /.container-fluid -->
+          </nav>
+        </div>
+
+        <p style="margin-top:10px;">其他样式</p>
+
+        <div class="bs-example-ie bs-nb clearfix">
+          <ul class="nav nav-pills clearfix">
+            <li class="active"><a href="#">Regular link</a></li>
+            <li class="dropdown">
+              <a id="drop4" role="button" data-toggle="dropdown" href="#">Dropdown <span class="caret"></span></a>
+              <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a id="drop5" role="button" data-toggle="dropdown" href="#">Dropdown 2 <span class="caret"></span></a>
+              <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a id="drop6" role="button" data-toggle="dropdown" href="#">Dropdown 3 <span class="caret"></span></a>
+              <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- javascript - 标签页 -->
+        <h3 id="js-tabs" class="page-title">标签页</h3>
+
+        <h5><strong>基本样式</strong> - <a href="javascript.php#tabs">使用方法</a></h5>
+
+        <div class="bs-example-ie bs-example-tabs">
+          <ul id="myTab" class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+            <li class=""><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+            <li class="dropdown">
+              <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#dropdown1" tabindex="-1" role="tab" data-toggle="tab">@fat</a></li>
+                <li><a href="#dropdown2" tabindex="-1" role="tab" data-toggle="tab">@mdo</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="home">
+              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+            </div>
+            <div class="tab-pane fade" id="profile">
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+            </div>
+            <div class="tab-pane fade" id="dropdown1">
+              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+            </div>
+            <div class="tab-pane fade" id="dropdown2">
+              <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- javascript - 警告框 -->
+        <h3 id="js-alerts" class="page-title">警告框</h3>
+
+        <h5><strong>基本样式</strong> - <a href="javascript.php#alerts">使用方法</a></h5>
+
+        <div class="bs-example-ie bs-nb">
+          <div class="alert alert-warning fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+          </div>
+        </div>
+
+        <div class="bs-example-ie bs-nb mt20">
+          <div class="alert alert-danger fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4>Oh snap! You got an error!</h4>
+            <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+            <p>
+              <button type="button" class="btn btn-danger">Take this action</button>
+              <button type="button" class="btn btn-default">Or do this</button>
+            </p>
+          </div>
+        </div>
+
+        <!-- javascript - 工具提示 -->
+        <h3 id="js-tooltips" class="page-title">工具提示</h3>
+
+        <h5><strong>基本样式</strong> - <a href="javascript.php#tooltips">使用方法</a></h5>
+
+        <div class="bs-example-ie">
+          <ul class="bs-docs-tooltip">
+            <li><a href="#" rel="tooltip" data-placement="top" data-original-title="Tooltip on top">Tooltip on top</a></li>
+            <li><a href="#" rel="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</a></li>
+            <li><a href="#" rel="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</a></li>
+            <li><a href="#" rel="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</a></li>
+          </ul>
+        </div>
+
+        <!-- javascript - 弹出层 -->
+        <h3 id="js-modals" class="page-title">弹出层</h3>
+
+        <h5><strong>基本样式</strong> - <a href="javascript.php#modals">使用方法</a></h5>
+
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+              </div>
+              <div class="modal-body">
+                <h4>Text in a modal</h4>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div>
+
+        <div class="bs-example-ie bs-modal">
+          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            打开弹出层
+          </button>
+        </div>
+
+        <!-- javascript - 轮播 -->
+        <h3 id="js-carousel" class="page-title">轮播</h3>
+
+        <h5><strong>基本样式</strong> - <a href="javascript.php#carousel">使用方法</a></h5>
+
+        <div class="bs-example-ie">
+          
+          <div id="myCarousel" class="carousel slide" style="width:100%;">
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="img/pic1.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>First Thumbnail label</h4>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+              </div>
+              <div class="item">
+                <img src="img/pic2.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>Second Thumbnail label</h4>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+              </div>
+              <div class="item">
+                <img src="img/pic3.jpg" alt="">
+                <div class="carousel-caption">
+                  <h4>Third Thumbnail label</h4>
+                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+              </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+          </div>
+
+        </div>
+
+        <div class="bs-callout bs-callout-danger clearfix">
+            <h4>注意</h4>
+            <p>ie6+不支持 Indicators(指示器) 切换，所以不需要加入即可。</p>
+        </div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * 第三方插件
+      *********************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+          <!-- plugin - 富文本编辑器 -->
+          <h3 id="ueditor" class="page-title">富文本编辑器</h3>
+          
+          <p>本插件兼容IE6+</p> 
+          <p><a href="javascript.php#ueditor" target="_blank">查看案例</a></p>
+
+          <h3 id="ueditor-examples" class="page-title">实例</h3>
+
+          <div class="bs-example">
+            <div class="ueditor-box">
+              <script id="ueditor-frame" name="content" style="width:100%;height:240px;"></script>
+            </div>
+          </div>
+
+          <!-- plugin 图表统计 -->
+          <h3 id="highcharts" class="page-title">图表插件</h3>
+
+          <p>本插件兼容IE6+</p> 
+          <p><a href="javascript.php#Chartsjs" target="_blank">查看案例</a></p>
+
+          <h3 id="ueditor-examples" class="page-title">实例</h3>
+
+          <div class="bs-example">
+            <div id="high-chart" style="height:400px; width:600px;"></div>
+          </div>  
+
+      </div><!-- lxui-docs-section end -->
+
+    </div>
+
+  </div>
+
+</div>
+  
+{include="footer"}

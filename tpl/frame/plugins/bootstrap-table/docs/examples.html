@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Examples &middot; Bootstrap Table</title>
+    <meta name="author" content="zhixin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../src/bootstrap-table.css">
+    <link rel="stylesheet" href="docs.css">
+    <!--<link rel="stylesheet" href="//wenzhixin.net.cn/css/fork.css">-->
+    <!--[if lt IE 9]>
+    <script src="//wenzhixin.net.cn/js/html5shiv.js"></script>
+    <script src="//wenzhixin.net.cn/js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../assets/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../docs/examples.js"></script>
+    <script src="../src/bootstrap-table.js"></script>
+    <script src="docs.js"></script>
+    <script src="//wenzhixin.net.cn/js/analytics.js"></script>
+</head>
+<body>
+<a class="sr-only" href="#content">Skip to main content</a>
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                Bootstrap Table
+            </a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="getting-started.html">Getting started</a>
+                </li>
+                <li>
+                    <a href="documentation.html">Documentation</a>
+                </li>
+                <li class="active">
+                    <a href="examples.html">Examples</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- GitHub buttons: see http://ghbtns.com -->
+                <li><iframe class="navbar-text" src="http://ghbtns.com/github-btn.html?user=wenzhixin&repo=bootstrap-table&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
+                <li><iframe class="navbar-text" src="http://ghbtns.com/github-btn.html?user=wenzhixin&repo=bootstrap-table&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe></li>
+                <li><iframe class="navbar-text" src="http://ghbtns.com/github-btn.html?user=wenzhixin&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="bs-header" id="content">
+    <div class="container">
+        <h1>Examples</h1>
+        <p>The examples of bootstrap table.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="bs-sidebar" role="complementary">
+                <ul class="nav bs-sidenav">
+                    <li><a href="#basic-table">Basic Table</a></li>
+                    <li><a href="#transform-table">Transform Table</a></li>
+                    <li><a href="#classes-table">Table Style</a></li>
+                    <li><a href="#sort-table">Sort Table</a></li>
+                    <li><a href="#custom-sort-table">Custom Sort Table</a></li>
+                    <li><a href="#format-table">Format Table</a></li>
+                    <li><a href="#hide-header-table">Hide Header Table</a></li>
+                    <li><a href="#show-columns-table">Show Columns Table</a></li>
+                    <li><a href="#card-view">Card View Table</a></li>
+                    <li><a href="#radio-table">Radio Table</a></li>
+                    <li><a href="#checkbox-table">Checkbox Table</a></li>
+                    <li><a href="#client-side-pagination-table">Client Side Pagination Table</a></li>
+                    <li><a href="#server-side-pagination-table">Server Side Pagination Table</a></li>
+                    <li><a href="#table-events">Table Events</a></li>
+                    <li><a href="#table-methods">Table Methods</a></li>
+                    <li><a href="#via-javascript-table">Via JavaScript</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9" role="main">
+            <div class="page-header alert alert-info">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                Bootstrap Table is licensed under the The MIT License. Completely free, you can arbitrarily use and modify this plugin. If you like this plugin, you can give me a <a href="http://github.com/wenzhixin/bootstrap-table">star</a>, and I will do better, thanks.
+            </div>
+            <div>
+                <div class="page-header">
+                    <h1 id="basic-table">Basic Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table data-toggle="table" data-url="data1.json" data-height="246">
+                        <thead>
+                            <tr>
+                                <th data-field="id">Item ID</th>
+                                <th data-field="name">Item Name</th>
+                                <th data-field="price">Item Price</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="transform-table">Transform Table</h1>
+                </div>
+                <div class="bs-example">
+                    <div class="btn-group btn-default">
+                        <button class="btn btn-default" id="transform">
+                            <i class="glyphicon glyphicon-transfer"></i> Transform
+                        </button>
+                        <button class="btn btn-default" id="destroy">
+                            <i class="glyphicon glyphicon-trash"></i> Destroy
+                        </button>
+                    </div>
+                    <table id="table-transform" data-url="data1.json" data-height="246">
+                        <thead>
+                            <tr>
+                                <th data-field="id">Item ID</th>
+                                <th data-field="name">Item Name</th>
+                                <th data-field="price">Item Price</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        $(function() {
+                            $('#transform').click(function() {
+                                $('#table-transform').bootstrapTable();
+                            });
+                            $('#destroy').click(function() {
+                                $('#table-transform').bootstrapTable('destroy');
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="classes-table">Table Style</h1>
+                </div>
+                <div class="bs-example">
+                    <div>
+                        <label><input id="hover" type="checkbox" checked> hover</label>
+                        <label><input id="striped" type="checkbox"> striped</label>
+                    </div>
+                    <table id="table-style" data-toggle="table" data-url="data1.json" data-height="246">
+                        <thead>
+                        <tr>
+                            <th data-field="id">Item ID</th>
+                            <th data-field="name">Item Name</th>
+                            <th data-field="price">Item Price</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        $(function() {
+                            $('#hover, #striped').click(function() {
+                                var classes = 'table';
+
+                                if ($('#hover').prop('checked')) {
+                                    classes = 'table table-hover';
+                                }
+                                $('#table-style').bootstrapTable('destroy')
+                                    .bootstrapTable({
+                                        classes: classes,
+                                        striped: $('#striped').prop('checked')
+                                    });
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="sort-table">Sort Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table data-toggle="table" data-url="data1.json" data-height="246" data-sort-name="name" data-sort-order="desc">
+                        <thead>
+                            <tr>
+                                <th data-field="id" data-align="right" data-sortable="true">Item ID</th>
+                                <th data-field="name" data-align="center" data-sortable="true">Item Name</th>
+                                <th data-field="price" data-sortable="true" data-sortable="true">Item Price</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="custom-sort-table">Custom Sort Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table id="table-custom-sort" data-toggle="table" data-url="data1.json" data-height="246" data-sort-name="price" data-sort-order="desc">
+                        <thead>
+                        <tr>
+                            <th data-field="id" data-align="right" data-sortable="true">Item ID</th>
+                            <th data-field="name" data-align="center" data-sortable="true">Item Name</th>
+                            <th data-field="price" data-sortable="true" data-sortable="true" data-sorter="priceSorter">Item Price</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        function priceSorter(a, b) {
+                            a = +a.substring(1); // remove $
+                            b = +b.substring(1);
+                            if (a > b) return 1;
+                            if (a < b) return -1;
+                            return 0;
+                        }
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="format-table">Format Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table id="table-format" data-toggle="table" data-url="data1.json" data-height="246">
+                        <thead>
+                        <tr>
+                            <th data-field="id">Item ID</th>
+                            <th data-field="name" data-formatter="nameFormatter">Item Name</th>
+                            <th data-field="price" data-formatter="priceFormatter">Item Price</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        function nameFormatter(value, row) {
+                            var icon = row.id % 2 === 0 ? 'glyphicon-star' : 'glyphicon-star-empty'
+
+                            return '<i class="glyphicon ' + icon + '"></i> ' + value;
+                        }
+
+                        function priceFormatter(value) {
+                            // 16777215 == ffffff in decimal
+                            var color = '#'+Math.floor(Math.random() * 6777215).toString(16);
+                            return '<div  style="color: ' + color + '">' +
+                                    '<i class="glyphicon glyphicon-usd"></i>' +
+                                    value.substring(1) +
+                                    '</div>';
+                        }
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="hide-header-table">Hide Header Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table data-toggle="table" data-url="data1.json" data-height="246" data-show-header="false">
+                        <thead>
+                        <tr>
+                            <th data-field="name">Item Name</th>
+                            <th data-field="price">Item Price</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="show-columns-table">Show Columns Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table data-toggle="table" data-url="data3.json" data-height="246" data-show-columns="true" data-id-field="id">
+                        <thead>
+                        <tr>
+                            <th data-field="state" data-radio="true"></th>
+                            <th data-field="name">Name</th>
+                            <th data-field="price">Price</th>
+                            <th data-field="column1">Columns1</th>
+                            <th data-field="column2" data-visible="false">Columns2</th>
+                            <th data-field="column3">Columns3</th>
+                            <th data-field="column4" data-visible="false">Columns4</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div class="page-header">
+                <h1 id="card-view">Card View Table</h1>
+            </div>
+            <div class="bs-example">
+                <table data-toggle="table" data-url="data4.json" data-height="246" data-card-view="true">
+                    <thead>
+                    <tr>
+                        <th data-field="name">Name</th>
+                        <th data-field="license">License</th>
+                        <th data-field="description">Description</th>
+                        <th data-field="url">Url</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="highlight"><pre><code class="language-html"></code></pre></div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="radio-table">Radio Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table data-toggle="table" data-url="data1.json" data-height="246" data-click-to-select="true">
+                        <thead>
+                            <tr>
+                                <th data-field="state" data-radio="true"></th>
+                                <th data-field="id" data-align="right">Item ID</th>
+                                <th data-field="name" data-align="center">Item Name</th>
+                                <th data-field="price" data-align="left">Item Price</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+            <div>
+                <div class="page-header">
+                    <h1 id="checkbox-table">Checkbox Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table data-toggle="table" data-url="data1.json" data-height="246" data-click-to-select="true">
+                        <thead>
+                            <tr>
+                                <th data-field="state" data-checkbox="true"></th>
+                                <th data-field="id" data-align="right">Item ID</th>
+                                <th data-field="name" data-align="center">Item Name</th>
+                                <th data-field="price" data-align="">Item Price</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="client-side-pagination-table">Client Side Pagination Table</h1>
+                </div>
+                <div class="form-inline">
+                    <label>
+                        I18n:
+                        <select class="form-control" id="i18n">
+                            <option value="en">en</option>
+                            <option value="zh-CN">zh-CN</option>
+                            <option value="zh-TW">zh-TW</option>
+                        </select>
+                        <a href="https://github.com/wenzhixin/bootstrap-table/tree/master/src/locale">Translate your language?</a>
+                    </label>
+                </div>
+                <div class="bs-example">
+                    <table id="table-pagination" data-toggle="table" data-url="data2.json" data-height="400" data-pagination="true" data-search="true">
+                        <thead>
+                            <tr>
+                                <th data-field="state" data-checkbox="true"></th>
+                                <th data-field="id" data-align="right">Item ID</th>
+                                <th data-field="name" data-align="center">Item Name</th>
+                                <th data-field="price" data-align="">Item Price</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="server-side-pagination-table">Server Side Pagination Table</h1>
+                </div>
+                <div class="bs-example">
+                    <table id="table-pagination"
+                           data-toggle="table"
+                           data-url="/examples/bootstrap_table/data"
+                           data-height="400"
+                           data-side-pagination="server"
+                           data-pagination="true"
+                           data-search="true"
+                           data-query-params="queryParams">
+                        <thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true"></th>
+                            <th data-field="id" data-align="right">Item ID</th>
+                            <th data-field="name" data-align="center">Item Name</th>
+                            <th data-field="price" data-align="">Item Price</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        // url: /examples/bootstrap_table/data?offset=0&limit=10&search=test
+                        function queryParams(pageSize, pageNumber, searchText) {
+                            return {
+                                limit: pageSize,
+                                offset: pageSize * (pageNumber - 1),
+                                search: searchText
+                            };
+                        }
+
+                        // url: /examples/bootstrap_table/data?page=1&number=10&search=test
+                        /*
+                        function queryParams(pageSize, pageNumber, searchText) {
+                            return {
+                                page: pageNumber,
+                                number: pageSize,
+                                search: searchText
+                            };
+                        }
+                        */
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="table-events">Table Events</h1>
+                </div>
+                <div class="bs-example">
+                    <div class="alert alert-success" id="events-result">
+                        Here is the result of event.
+                    </div>
+                    <table id="events-table" data-url="data1.json" data-height="246">
+                        <thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true"></th>
+                            <th data-field="id" data-sortable="true">Item ID</th>
+                            <th data-field="name" data-sortable="true">Item Name</th>
+                            <th data-field="price" data-sortable="true">Item Price</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        $(function() {
+                            var $result = $('#events-result');
+
+                            $('#events-table').bootstrapTable({
+                                onClickRow: function(row) {
+                                    $result.text('Event: onClickRow, data: ' + JSON.stringify(row));
+                                },
+                                onSort: function(name, order) {
+                                    $result.text('Event: onSort, data: ' + name + ', ' + order);
+                                },
+                                onCheck: function(row) {
+                                    $result.text('Event: onCheck, data: ' + JSON.stringify(row));
+                                },
+                                onUncheck: function(row) {
+                                    $result.text('Event: onUncheck, data: ' + JSON.stringify(row));
+                                },
+                                onCheckAll: function() {
+                                    $result.text('Event: onCheckAll');
+                                },
+                                onUncheckAll: function() {
+                                    $result.text('Event: onUncheckAll');
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="table-methods">Table methods</h1>
+                </div>
+                <div class="bs-example">
+                    <div class="btn-group">
+                        <button class="btn btn-default" id="get-selections">
+                            Get Selections
+                        </button>
+                        <button class="btn btn-default" id="load-data" data-method="load">
+                            Load Data
+                        </button>
+                        <button class="btn btn-default" id="append-data" data-method="append">
+                            Append Data
+                        </button>
+                        <button class="btn btn-default" id="merge-cells">
+                            Merge Cells
+                        </button>
+                        <button class="btn btn-default" id="check-all" data-method="checkAll">
+                            Check All
+                        </button>
+                        <button class="btn btn-default" id="uncheck-all" data-method="uncheckAll">
+                            Uncheck All
+                        </button>
+                        <button class="btn btn-default" id="show-loading" data-method="showLoading">
+                            Show Loading
+                        </button>
+                        <button class="btn btn-default" id="hide-loading" data-method="hideLoading">
+                            Hide Loading
+                        </button>
+                        <button class="btn btn-default" id="refresh" data-method="refresh">
+                            Refresh
+                        </button>
+                    </div>
+                    <table id="table-methods-table" data-height="246" data-url="data1.json">
+                        <thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true"></th>
+                            <th data-field="id">Item ID</th>
+                            <th data-field="name">Item Name</th>
+                            <th data-field="price">Item Price</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        $(function() {
+                            var id = 0,
+                                getRows = function() {
+                                    var rows = [];
+
+                                    for (var i = 0; i < 5; i++) {
+                                        rows.push({
+                                            id: id,
+                                            name: 'test' + id,
+                                            price: '$' + id
+                                        });
+                                        id++;
+                                    }
+                                    return rows;
+                                },
+                                // init table use data
+                                $table = $('#table-methods-table').bootstrapTable();
+
+                            $('#get-selections').click(function() {
+                                alert('Selected values: ' + JSON.stringify($table.bootstrapTable('getSelections')));
+                            });
+                            $('#load-data, #append-data, #check-all, #uncheck-all, ' +
+                                    '#show-loading, #hide-loading, #refresh').click(function() {
+                                $table.bootstrapTable($(this).data('method'), getRows());
+                            });
+                            $('#merge-cells').click(function() {
+                                $table.bootstrapTable('mergeCells', {
+                                    index: 1,
+                                    field: 'name',
+                                    colspan: 2,
+                                    rowspan: 3
+                                })
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <div>
+                <div class="page-header">
+                    <h1 id="via-javascript-table">Via JavaScript</h1>
+                </div>
+                <div class="bs-example">
+                    <table id="table-javascript"></table>
+                    <script>
+                        $(function() {
+                            $('#table-javascript').bootstrapTable({
+                                method: 'get',
+                                url: 'data2.json',
+                                height: 400,
+                                striped: true,
+                                pagination: true,
+                                pageSize: 50,
+                                pageList: [10, 25, 50, 100, 200],
+                                search: true,
+                                showColumns: true,
+                                columns: [{
+                                    field: 'state',
+                                    checkbox: true
+                                }, {
+                                    field: 'id',
+                                    title: 'Item ID',
+                                    align: 'right',
+                                    valign: 'bottom',
+                                    sortable: true
+                                }, {
+                                    field: 'name',
+                                    title: 'Item Name',
+                                    align: 'center',
+                                    valign: 'middle',
+                                    sortable: true,
+                                    formatter: nameFormatter
+                                }, {
+                                    field: 'price',
+                                    title: 'Item Price',
+                                    align: 'left',
+                                    valign: 'top',
+                                    sortable: true,
+                                    formatter: priceFormatter,
+                                    sorter: priceSorter
+                                }]
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="highlight"><pre><code class="language-html"></code></pre></div>
+            </div>
+
+            <hr>
+            <a href="https://github.com/wenzhixin/bootstrap-table/blob/master/docs/docs.js">More examples via JavaScript</a>
+        </div>
+    </div>
+</div>
+
+<!--<a href="https://github.com/wenzhixin/bootstrap-table" class="fork_me"></a>-->
+
+<footer class="bs-footer" role="contentinfo">
+    <div class="container">
+        <p>Copyright © 2012-2014, Bootstrap Table is licensed under the The MIT License. Coded by wenzhixin. </p>
+        <ul class="footer-links">
+            <li>Currently: v1.0.4</li>
+            <li class="muted">·</li>
+            <li><a href="http://wenzhixin.net.cn">My website</a></li>
+            <li class="muted">·</li>
+            <li><a href="http://repos.wenzhixin.net.cn">My repos</a></li>
+            <li class="muted">·</li>
+            <li><a href="https://github.com/wenzhixin">Github (@wenzhixin)</a></li>
+            <li class="muted">·</li>
+            <li><a href="https://github.com/wenzhixin/bootstrap-table/issues?state=open">Issues</a></li>
+            <li class="muted">·</li>
+            <li><a href="mailto:wenzhixin2010@gmail.com">Email</a></li>
+        </ul>
+    </div>
+</footer>
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

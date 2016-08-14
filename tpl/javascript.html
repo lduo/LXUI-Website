@@ -1,0 +1,2579 @@
+{include="header"}
+
+<div class="container lxui-docs-container">
+
+	<div class="row">
+		
+		<div class="col-md-3">
+			
+			<div class="bs-sidebar hidden-print" role="complementary">
+				
+				<ul class="nav bs-sidenav">
+					
+					<li>
+						<a href="#js-overview">概览</a>
+						<ul class="nav">
+							<li><a href="#js-individual-compiled">引入文件</a></li>
+							<li><a href="#js-data-attrs">data 属性</a></li>
+							<li><a href="#js-programmatic-api">编写方式的 API</a></li>
+							<li><a href="#js-noconflict">避免命名冲突</a></li>
+							<li><a href="#js-events">事件</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#modals">弹出层</a>
+						<ul class="nav">
+							<li><a href="#modals-examples">实例</a></li>
+							<li><a href="#modals-sizes">尺寸</a></li>
+							<li><a href="#modals-remove-animation">禁用动画效果</a></li>
+							<li><a href="#modals-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#dropdowns">下拉菜单</a>
+						<ul class="nav">
+							<li><a href="#dropdowns-examples">实例</a></li>
+							<li><a href="#dropdowns-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#scrollspy">滚动监听</a>
+						<ul class="nav">
+							<li><a href="#scrollspy-examples">实例</a></li>
+							<li><a href="#scrollspy-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#tabs">标签页</a>
+						<ul class="nav">
+							<li><a href="#tabs-examples">实例</a></li>
+							<li><a href="#tabs-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#tooltips">工具提示</a>
+						<ul class="nav">
+							<li><a href="#tooltips-examples">实例</a></li>
+							<li><a href="#tooltips-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#popovers">按钮提示</a>
+						<ul class="nav">
+							<li><a href="#popovers-examples">实例</a></li>
+							<li><a href="#popovers-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#alerts">警告框</a>
+						<ul class="nav">
+							<li><a href="#alerts-examples">实例</a></li>
+							<li><a href="#alerts-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#buttons">按钮动作</a>
+						<ul class="nav">
+							<li><a href="#buttons-examples">实例</a></li>
+							<li><a href="#buttons-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#collapse">折叠</a>
+						<ul class="nav">
+							<li><a href="#collapse-examples">实例</a></li>
+							<li><a href="#collapse-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#carousel">轮播</a>
+						<ul class="nav">
+							<li><a href="#carousel-examples">实例</a></li>
+							<li><a href="#carousel-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<hr>
+
+					<li><span>第三方插件</span></li>
+
+					<li>
+						<a href="#ueditor">富文本编辑器</a>
+						<ul class="nav">
+							<li><a href="#ueditor-examples">实例</a></li>
+							<li><a href="#ueditor-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#backtop">返回顶部插件</a>
+						<ul class="nav">
+							<li><a href="#backtop-examples">实例</a></li>
+							<li><a href="#backtop-usage">用法</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#Chartsjs">图表插件</a>
+						<ul class="nav">
+							<li><a href="#Chartsjs-examples">实例</a></li>
+						</ul>
+					</li>
+
+          <li>
+            <a href="#tablejs">表格插件</a>
+            <ul class="nav">
+              <li><a href="#tablejs-examples">实例</a></li>
+            </ul>
+          </li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div class="col-md-9" role="main">
+			
+			<!--
+      *
+      * ui overview 概览
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section top">
+
+      	<h1 id="js-overview" class="page-header">概览</h1>
+
+      	<!-- 引入文件 -->
+      	<h3 id="js-individual-compiled" class="page-title">引入文件</h3>
+
+      	<p>JavaScript 插件引入（使用 lxui.js 或压缩版的 lxui.min.js）即可。还提供独立的插件可供选择自行添加。</p>
+
+      	<div class="bs-callout bs-callout-danger">
+			    <h4>建议使用压缩版的 JavaScript 文件</h4>
+			    <p><code>lxui.js</code> 和 <code>lxui.min.js</code> 都包含了所有插件，你在使用时，只需选择一个引入页面就可以了。</p>
+			  </div>
+
+			  <div class="bs-callout bs-callout-danger">
+			    <h4>组件的 data 属性</h4>
+			    <p>不要在同一个元素上同时使用多个插件的 data 属性。例如，button 组件不能同时支持工具提示和控制弹窗。如果需要的话，可以在其外面包裹一个额外的元素。</p>
+			  </div>
+
+			  <div class="bs-callout bs-callout-danger">
+			    <h4>插件之间的依赖关系</h4>
+			    <p>某些插件和 CSS 组件依赖于其它插件。如果你是单个引入每个插件的，请确保在文档中检查插件之间的依赖关系。注意，所有插件都依赖 jQuery （也就是说，jQuery必须在所有插件<strong>之前</strong>引入页面）。</p>
+			  </div>
+
+			  <!-- data 属性 -->
+			  <h3 id="js-data-attrs" class="page-title">data 属性</h3>
+
+			  <p>你可以仅仅通过 data 属性 API 就能使用所有的 LXUI 插件，无需写一行 JavaScript 代码。这是 LXUI 中的推荐 API，也应该是你的首选方式。</p>
+
+			  <p>在某些情况下可能需要将此功能关闭。因此，我们还提供了关闭 data 属性 API 的方法，即解除以 <code>data-api</code> 为命名空间并绑定在文档上的事件。就像下面这样：</p>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'.data-api'</span><span class="p">)</span>
+</code></pre></div>
+				
+				<p>另外，如果是针对某个特定的插件，只需在 <code>data-api</code> 前面添加那个插件的名称作为命名空间，如下：</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'.alert.data-api'</span><span class="p">)</span>
+</code></pre></div>
+
+				<!-- 编写方式的 API -->
+				<h3 id="js-programmatic-api" class="page-title">编写方式的 API</h3>
+
+				<p>所有公开的 API 都是支持单独或链式调用方式，并且返回其所操作的元素集合（注：和jQuery的调用形式一致）。</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.btn.danger'</span><span class="p">).</span><span class="nx">button</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'fat'</span><span class="p">)</span>
+</code></pre></div>
+
+				<p>所有方法都可以接受一个可选的 option 对象作为参数，或者一个代表特定方法的字符串，或者什么也不提供（在这种情况下，插件将会以默认值初始化）。</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">()</span>                      <span class="c1">// 以默认值初始化</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">({</span> <span class="nx">keyboard</span><span class="o">:</span> <span class="kc">false</span> <span class="p">})</span>   <span class="c1">// initialized with no keyboard</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>                <span class="c1">// 初始化后立即调用 show 方法</span>
+</code></pre></div>
+
+				<!-- 避免命名冲突 -->
+				<h3 id="js-noconflict" class="page-title">避免命名冲突</h3>
+
+				<p>某些时候可能需要将 LXUI 插件与其他 UI 框架共同使用。在这种情况下，命名空间冲突随时可能发生。如果不幸发生了这种情况，你可以通过调用插件的 <code>.noConflict</code> 方法恢复其原始值。（如果打算使用 bootstrap 框架就不需要加载 lxui.js/lxui.min.js）</p>
+
+				<div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">LxuiButton</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">button</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">()</span> <span class="c1">// return $.fn.button to previously assigned value</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">bootstrapBtn</span> <span class="o">=</span> <span class="nx">LxuiButton</span>            <span class="c1">// give $().LxuiBtn the LXUI functionality</span>
+</code></pre></div>
+
+				<!-- 事件 -->
+				<h3 id="js-events" class="page-title">事件</h3>
+
+				<p>为大部分插件所具有的动作提供了自定义事件。一般来说，这些事件都有不定式和过去式两种动词的命名形式，例如，不定式形式的动词（例如 <code>show</code>）表示其在事件开始时被触发；而过去式动词（例如 <code>shown</code> ）表示在动作执行完毕之后被触发。</p>
+
+				<p>所有以不定式形式的动词命名的事件都提供了 <code>preventDefault</code> 功能。这就赋予你在动作开始执行前将其停止的能力。</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.bs.modal'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">)</span> <span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span> <span class="c1">// 阻止弹窗的显示</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui modals 弹出层
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="modals" class="page-header">弹出层</h1>
+
+      	<p>弹出层以弹出对话框的形式出现，具有最小和最实用的功能集。</p>
+
+      	<div class="bs-callout bs-callout-warning" id="callout-stacked-modals">
+			    <h4>不支持弹出层重叠</h4>
+			    <p>千万不要在一个弹出层上重叠另一个弹出层。要想同时支持多个模态框，需要自己写额外的代码来实现。</p>
+			  </div>
+
+			  <div class="bs-callout bs-callout-warning" id="callout-modal-markup-placement">
+			    <h4>模态框的 HTML 代码放置的位置</h4>
+			    <p>务必将模态框的 HTML 代码放在文档的最高层级内（也就是说，尽量作为 body 标签的直接子元素），以避免其他组件影响模态框的展现和/或功能。</p>
+			  </div>
+
+      	<!-- 实例 -->
+      	<h3 id="modals-examples" class="page-title">实例</h3>
+
+      	<p>以下弹出层包含了弹出层的头、体和一组放置于底部的按钮。</p>
+
+      	<div class="bs-example bs-example-modal">
+			    <div class="modal">
+			      <div class="modal-dialog">
+			        <div class="modal-content">
+			          <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			            <h4 class="modal-title">标题</h4>
+			          </div>
+			          <div class="modal-body">
+			            <p>内容区域…</p>
+			          </div>
+			          <div class="modal-footer">
+			            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			            <button type="button" class="btn btn-primary">保存</button>
+			          </div>
+			        </div><!-- /.modal-content -->
+			      </div><!-- /.modal-dialog -->
+			    </div><!-- /.modal -->
+			  </div>
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal fade"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-header"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/span&gt;&lt;/button&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"modal-title"</span><span class="nt">&gt;</span>标题<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-body"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>内容区域...<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-footer"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>关闭<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>保存<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal-content --&gt;</span>
+  <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal-dialog --&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.modal --&gt;</span>
+</code></pre></div>
+
+				<h4><strong>动态实例</strong></h4>
+
+				<p>点击下面的按钮即可通过 JavaScript 启动一个弹出层。此弹出层将从上到下、逐渐浮现到页面前。</p>
+
+				<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			          <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+			        </div>
+			        <div class="modal-body">
+			          <h4>Text in a modal</h4>
+			          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+			          <h4>Popover in a modal</h4>
+			          <p>This <a href="#" role="button" class="btn btn-default popover-test" title="" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">button</a> should trigger a popover on click.</p>
+
+			          <h4>Tooltips in a modal</h4>
+			          <p><a href="#" class="tooltip-test" title="" data-original-title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="" data-original-title="Tooltip">that link</a> should have tooltips on hover.</p>
+
+			          <hr>
+
+			          <h4>Overflowing text to show scroll behavior</h4>
+			          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-primary">Save changes</button>
+			        </div>
+
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div>
+
+				<div class="bs-example" style="padding-bottom: 24px;">
+			    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+			      打开弹出层
+			    </button>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Button trigger modal --&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-target=</span><span class="s">"#myModal"</span><span class="nt">&gt;</span>
+  打开弹出层
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="c">&lt;!-- Modal --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal fade"</span> <span class="na">id=</span><span class="s">"myModal"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"myModalLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-header"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/span&gt;&lt;/button&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"modal-title"</span> <span class="na">id=</span><span class="s">"myModalLabel"</span><span class="nt">&gt;</span>Modal title<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-body"</span><span class="nt">&gt;</span>
+        ...
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-footer"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Save changes<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<div class="bs-callout bs-callout-warning">
+			    <h4>增强弹出层的可访问性</h4>
+			    <p>务必为 <code>.modal</code> 添加 <code>role="dialog"</code> 属性，<code>aria-labelledby="myModalLabel"</code> 属性用于弹出层的标题栏，<code>aria-hidden="true"</code> 用于通知辅助性工具略过弹出层的 DOM元素。</p>
+			    <p>另外，你还应该通过 <code>aria-describedby</code> 属性为弹出层 <code>.modal</code> 添加描述性信息。</p>
+			  </div>
+
+			  <!-- 弹出层尺寸 -->
+			  <h3 id="modals-sizes" class="page-title">弹出层尺寸</h3>
+
+			  <p>弹出层提供了两个可选尺寸，通过为 .modal-dialog 增加一个样式调整尺寸。</p>
+
+			  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+			    <div class="modal-dialog modal-lg">
+			      <div class="modal-content">
+
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			          <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+			        </div>
+			        <div class="modal-body">
+			          ...
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div>
+
+			  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+			    <div class="modal-dialog modal-sm">
+			      <div class="modal-content">
+
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			          <h4 class="modal-title" id="mySmallModalLabel">Small modal</h4>
+			        </div>
+			        <div class="modal-body">
+			          ...
+			        </div>
+			      </div><!-- /.modal-content -->
+			    </div><!-- /.modal-dialog -->
+			  </div>
+
+			  <div class="bs-example">
+			    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">大弹出层</button>
+			    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">小弹出层</button>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Large modal --&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-target=</span><span class="s">".bs-example-modal-lg"</span><span class="nt">&gt;</span>Large modal<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal fade bs-example-modal-lg"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"myLargeModalLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog modal-lg"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+      ...
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- Small modal --&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-target=</span><span class="s">".bs-example-modal-sm"</span><span class="nt">&gt;</span>Small modal<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal fade bs-example-modal-sm"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"mySmallModalLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog modal-sm"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+      ...
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<!-- 禁用动画效果 -->
+				<h3 id="modals-remove-animation" class="page-title">禁用动画效果</h3>
+
+				<p>如果你不需要弹出层弹出时的动画效果（淡入淡出效果），删掉 <code>.fade</code> 即可。</p>
+
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">""</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<!-- 用法 -->
+				<h3 id="modals-usage" class="page-title">用法</h3>
+
+				<p>通过 data 属性或 JavaScript 调用弹出层插件，可以根据需要动态展示隐藏的内容。弹出层弹出时还会为 <code>&lt;body&gt;</code> 元素添加 <code>.modal-open</code> ，从而覆盖页面默认的滚动行为，并且还会自动生成一个 <code>.modal-backdrop</code> 元素用于提供一个可点击的区域，点击此区域就即可关闭弹出层。</p>
+
+				<h4><strong>通过 data 属性使用</strong></h4>
+				<p>不需写 JavaScript 代码也可激活弹出层。通过在一个起控制器作用的元素（例如：按钮）上添加 <code>data-toggle="modal"</code> 属性，或者 <code>data-target="#foo"</code> 属性，再或者 <code>href="#foo"</code> 属性，用于指向被控制的弹出层。</p>
+
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-target=</span><span class="s">"#myModal"</span><span class="nt">&gt;</span>Launch modal<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+				<h4><strong>通过 JavaScript 使用</strong></h4>
+				<p>只需一行 JavaScript 代码，即可通过元素的 id <code>myModal</code> 调用弹出层：</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</code></pre></div>
+
+				<h4><strong>参数设置 (options)</strong></h4>
+				<p>可以将选项通过 data 属性或 JavaScript 代码传递。对于 data 属性，需要将参数名称放到 <code>data-</code> 之后，例如 <code>data-backdrop=""</code>。</p>
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 100px;">名称</th>
+			         <th style="width: 50px;">类型</th>
+			         <th style="width: 50px;">默认值</th>
+			         <th>描述</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>backdrop</td>
+			         <td>boolean 或 字符串 <code>'static'</code></td>
+			         <td>true</td>
+			         <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
+			       </tr>
+			       <tr>
+			         <td>keyboard</td>
+			         <td>boolean</td>
+			         <td>true</td>
+			         <td>键盘上的 esc 键被按下时关闭弹出层。</td>
+			       </tr>
+			       <tr>
+			         <td>show</td>
+			         <td>boolean</td>
+			         <td>true</td>
+			         <td>弹出层初始化之后就立即显示出来。</td>
+			       </tr>
+			       <tr>
+			         <td>remote</td>
+			         <td>path</td>
+			         <td>false</td>
+			         <td><p>如果提供的是 URL，将利用 jQuery 的 <code>load</code> 方法<strong>从此 URL 地址加载要展示的内容（只加载一次）</strong>并插入 <code>.modal-content</code> 内。如果使用的是 data 属性 API，还可以利用 <code>href</code> 属性指定内容来源地址。下面是一个实例：</p>
+			<div class="zero-clipboard"><span class="btn-clipboard btn-clipboard-hover">Copy</span></div><div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">href=</span><span class="s">"remote.html"</span> <span class="na">data-target=</span><span class="s">"#modal"</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/a&gt;</span>
+			</code></pre></div>
+			         </td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+
+			  <h5><strong>.modal(options)</strong></h5>
+			  <p>将页面中的某块内容作为弹出层激活。接受可选参数 <code>object</code>。</p>
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">({</span>
+  <span class="nx">backdrop</span><span class="o">:</span> <span class="kc">true</span>,  <span class="c">//参数默认值 true</span>
+  <span class="nx">keyboard</span><span class="o">:</span> <span class="kc">false</span>, <span class="c">//参数默认值 true</span>
+  <span class="nx">show</span><span class="o">:</span> <span class="kc">false</span>      <span class="c">//参数默认值 true</span>
+<span class="p">})</span>
+</code></pre></div>
+				
+				<h5><strong>.modal('toggle')</strong></h5>
+				<p>手动打开或关闭弹出层。在弹出层显示或隐藏之前返回到主调函数中（也就是，在触发 shown.bs.modal 或 hidden.bs.modal 事件之前）。</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h5><strong>.modal('show')</strong></h5>
+				<p>手动打开弹出层。在弹出层显示之前返回到主调函数中 （也就是，在触发 shown.bs.modal 事件之前）。</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h5><strong>.modal('hide')</strong></h5>
+				<p>手动隐藏弹出层。在弹出层隐藏之前返回到主调函数中 （也就是，在触发 hidden.bs.modal 事件之前）。</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h4><strong>事件</strong></h4>
+				<p>弹出层提供了一些事件用于监听并执行你自己的代码</p>
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 150px;">事件类型</th>
+			         <th>描述</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>show.bs.modal</td>
+			         <td><code>show</code> 方法调用之后立即触发该事件。如果是通过点击某个作为触发器的元素，则此元素可以通过事件的 <code>relatedTarget</code> 属性进行访问。</td>
+			       </tr>
+			       <tr>
+			         <td>shown.bs.modal</td>
+			         <td>此事件在弹出层已经显示出来（并且同时在 CSS 过渡效果完成）之后被触发。如果是通过点击某个作为触发器的元素，则此元素可以通过事件的 <code>relatedTarget</code> 属性进行访问。</td>
+			       </tr>
+			       <tr>
+			         <td>hide.bs.modal</td>
+			         <td><code>hide</code> 方法调用之后立即触发该事件。</td>
+			       </tr>
+			       <tr>
+			         <td>hidden.bs.modal</td>
+			         <td>此事件在弹出层被隐藏（并且同时在 CSS 过渡效果完成）之后被触发。</td>
+			       </tr>
+			       <tr>
+			         <td>loaded.bs.modal</td>
+			         <td>从远端的数据源加载完数据之后触发该事件。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hidden.bs.modal'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// do something...</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui dropdowns 下拉菜单
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="dropdowns" class="page-header">下拉菜单</h1>
+
+      	<p>你可以把下拉菜单放到导航栏、标签页、按钮组等。</p>
+
+      	<!-- 实例 -->
+      	<div class="bs-example">
+				    <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+				      <div class="container-fluid">
+				        <div class="navbar-header">
+				          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-collapse">
+				            <span class="sr-only">Toggle navigation</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				          </button>
+				          <a class="navbar-brand" href="#">Project Name</a>
+				        </div>
+				        <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
+				          <ul class="nav navbar-nav">
+				            <li class="dropdown">
+				              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+				              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+				                <li role="presentation" class="divider"></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+				              </ul>
+				            </li>
+				            <li class="dropdown">
+				              <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 2 <span class="caret"></span></a>
+				              <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+				                <li role="presentation" class="divider"></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+				              </ul>
+				            </li>
+				          </ul>
+				          <ul class="nav navbar-nav navbar-right">
+				            <li id="fat-menu" class="dropdown">
+				              <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 3 <span class="caret"></span></a>
+				              <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+				                <li role="presentation" class="divider"></li>
+				                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+				              </ul>
+				            </li>
+				          </ul>
+				        </div><!-- /.nav-collapse -->
+				      </div><!-- /.container-fluid -->
+				    </nav> <!-- /navbar-example -->
+				</div>
+
+				<p>其他样式</p>
+				<div class="bs-example">
+			    <ul class="nav nav-pills">
+			      <li class="active"><a href="#">Regular link</a></li>
+			      <li class="dropdown">
+			        <a id="drop4" role="button" data-toggle="dropdown" href="#">Dropdown <span class="caret"></span></a>
+			        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+			          <li role="presentation" class="divider"></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+			        </ul>
+			      </li>
+			      <li class="dropdown">
+			        <a id="drop5" role="button" data-toggle="dropdown" href="#">Dropdown 2 <span class="caret"></span></a>
+			        <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+			          <li role="presentation" class="divider"></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+			        </ul>
+			      </li>
+			      <li class="dropdown">
+			        <a id="drop6" role="button" data-toggle="dropdown" href="#">Dropdown 3 <span class="caret"></span></a>
+			        <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Something else here</a></li>
+			          <li role="presentation" class="divider"></li>
+			          <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Separated link</a></li>
+			        </ul>
+			      </li>
+			    </ul> <!-- /pills -->
+			  </div>
+
+			  <!-- 用法 -->
+			  <h3 id="dropdowns-usage" class="page-title">用法</h3>
+			  <p>用 data 属性或者 JavaScript 来实现，原理就是当点击下拉菜单后即给 <code>.dropdown-menu</code> 后加 <code>.open</code> 来显示下拉层内容。 </p>
+
+			  <h4><strong>通过 data 属性使用</strong></h4>
+			  <p>给链接或按钮加入 <code>data-toggle="dropdown"</code> 来激活下拉菜单。</p>
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Dropdown trigger<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-labelledby=</span><span class="s">"dLabel"</span><span class="nt">&gt;</span>
+    ...
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+				
+				<h5>也可以给下拉菜单按钮添加链接属性，要用 <code>data-target</code> 属性而不是 <code>href="#"</code> </h5>
+				
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"dLabel"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">data-target=</span><span class="s">"#"</span> <span class="na">href=</span><span class="s">"/page.html"</span><span class="nt">&gt;</span>
+    Dropdown <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-labelledby=</span><span class="s">"dLabel"</span><span class="nt">&gt;</span>
+    ...
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<h4><strong>通过 JavaScript 使用</strong></h4>
+				<p>用 JavaScript 定义下拉菜单：</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.dropdown-toggle'</span><span class="p">).</span><span class="nx">dropdown</span><span class="p">()</span>
+</code></pre></div>
+				<div class="bs-callout bs-callout-info">
+			    <h4><code>data-toggle="dropdown"</code> 属性仍然需要</h4>
+			    <p>不管是否用 JavaScript 还是 data 属性来激活下拉菜单，你都需要给按钮或链接 <code>data-toggle="dropdown"</code> 属性，这样才能正确使用触发下拉菜单。</p>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+			  <h5><strong>$().dropdown('toggle')</strong></h5>
+			  <p>通过对某个特定的导航条或标签页导航切换下拉菜单的打开关闭。</p>
+
+			  <h4><strong>事件</strong></h4>
+			  <div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			        <tr>
+			          <th style="width: 150px;">Event Type</th>
+			          <th>Description</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr>
+			          <td>show.bs.dropdown</td>
+			          <td><code>show</code> 方法调用之后立即触发该事件。如果是通过点击某个作为触发器的元素，则此元素可以通过事件的 <code>relatedTarget</code> 属性进行访问。</td>
+			        </tr>
+			        <tr>
+			          <td>shown.bs.dropdown</td>
+			          <td>此事件在下拉菜单已经显示出来之后被触发。如果是通过点击某个作为触发器的元素，则此元素可以通过事件的 <code>relatedTarget</code> 属性进行访问。</td>
+			        </tr>
+			        <tr>
+			          <td>hide.bs.dropdown</td>
+			          <td><code>hide</code> 方法调用之后立即触发该事件。</td>
+			        </tr>
+			        <tr>
+			          <td>hidden.bs.dropdown</td>
+			          <td>此事件在下拉菜单被隐藏之后被触发。</td>
+			        </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myDropdown'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.bs.dropdown'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui scrollspy 滚动监听
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="scrollspy" class="page-header">滚动监听</h1>
+
+      	<h3 id="scrollspy-examples" class="page-title">实例</h3>
+
+      	<p>滚动监听插件根据滚动的位置自动更新导航条中相应的导航项。拖动下面区域的滚动条，使其低于导航条的位置，注意观察active类的变化。下拉菜单中的子项也会跟着变为高亮状态。</p>
+
+      	<div class="bs-example">
+			    <nav id="navbar-example2" class="navbar navbar-default navbar-static" role="navigation">
+			      <div class="container-fluid">
+			        <div class="navbar-header">
+			          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>
+			          <a class="navbar-brand" href="#">Project Name</a>
+			        </div>
+			        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+			          <ul class="nav navbar-nav">
+			            <li class="active"><a href="#fat">@fat</a></li>
+			            <li class=""><a href="#mdo">@mdo</a></li>
+			            <li class="dropdown">
+			              <a href="#" id="navbarDrop1" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+			              <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop1">
+			                <li class=""><a href="#one" tabindex="-1">one</a></li>
+			                <li class=""><a href="#two" tabindex="-1">two</a></li>
+			                <li class="divider"></li>
+			                <li><a href="#three" tabindex="-1">three</a></li>
+			              </ul>
+			            </li>
+			          </ul>
+			        </div>
+			      </div>
+			    </nav>
+			    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
+			      <h4 id="fat">@fat</h4>
+			      <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+			      <h4 id="mdo">@mdo</h4>
+			      <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+			      <h4 id="one">one</h4>
+			      <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+			      <h4 id="two">two</h4>
+			      <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+			      <h4 id="three">three</h4>
+			      <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+			      <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+			      </p>
+			    </div>
+			  </div>
+
+			  <h3 id="scrollspy-usage" class="page-title">用法</h3>
+
+			  <p>需要给添加滚动监听的功能的元素 添加 <code>positon: relative;</code>属性，更多情况下是给 <code>&lt;body&gt;</code> 添加。</p>
+
+			  <h4><strong>通过 data 属性使用</strong></h4>
+
+			  <p>只需将 <code>data-spy="scroll"</code> 添加到被监听的页面元素上（大部分情况是添加到body上），然后将 <code>data-target=".navbar"</code> 添加到导航部分，顶部导航条就拥有了监听滚动的功能。</p>
+
+			  <div class="highlight"><pre><code class="css"><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;body</span> <span class="na">data-spy=</span><span class="s">"scroll"</span> <span class="na">data-target=</span><span class="s">".navbar-example"</span><span class="nt">&gt;</span>
+  ...
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-example"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-tabs"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
+      ...
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  ...
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+				<h4><strong>通过 JavaScript 使用</strong></h4>
+
+				<p>在你的 CSS 中加入 <code>position: relative;</code> 后，通过JavaScript 启动滚动监听：</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">scrollspy</span><span class="p">({</span> <span class="nx">target</span><span class="o">:</span> <span class="s1">'.navbar-example'</span> <span class="p">})</span>
+</code></pre></div>
+
+				<div class="bs-callout bs-callout-danger">
+			    <h4>指定元素ID的要求</h4>
+			    <p>必须为导航条中的链接指定相应的目标id。例如，<code>&lt;a href="#home"&gt;home&lt;/a&gt;</code> 必须和dom中类似 <code>&lt;div id="home"&gt;&lt;/div&gt;</code> 的页面元素相呼应。</p>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+
+			  <h5><strong>.scrollspy('refresh')</strong></h5>
+			  <p>当滚动监听所作用的DOM有增删页面元素的操作时，需要调用下面的refresh方法：</p>
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'[data-spy="scroll"]'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">$spy</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">scrollspy</span><span class="p">(</span><span class="s1">'refresh'</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+				<h4><strong>参数设置</strong></h4>
+				<p>所有参数都可以通过 data 属性或 JavaScript 设置。对于 data 属性，将参数名附着到 <code>data-</code> 后面，就像 <code>data-offset=""</code> 一样。</p>
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 100px;">Name</th>
+			         <th style="width: 100px;">type</th>
+			         <th style="width: 50px;">default</th>
+			         <th>description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>offset</td>
+			         <td>number</td>
+			         <td>10</td>
+			         <td>从顶部到当前滚动位置的像素单位。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <h4><strong>事件</strong></h4>
+			  <div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 150px;">Event Type</th>
+			         <th>Description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>activate.bs.scrollspy</td>
+			         <td>当有新条目被激活，此事件就出发。</td>
+			      </tr>
+			      </tbody>
+			    </table>
+			  </div>
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myScrollspy'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'activate.bs.scrollspy'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui tabs 选项卡
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="tabs" class="page-header">标签页</h1>
+
+      	<h3 id="tabs-examples" class="page-title">实例</h3>
+
+      	<p>可以在标签页的选项加入下拉菜单。</p>
+      	<div class="bs-example bs-example-tabs">
+			    <ul id="myTab" class="nav nav-tabs" role="tablist">
+			      <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+			      <li class=""><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+			      <li class="dropdown">
+			        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+			        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+			          <li><a href="#dropdown1" tabindex="-1" role="tab" data-toggle="tab">@fat</a></li>
+			          <li><a href="#dropdown2" tabindex="-1" role="tab" data-toggle="tab">@mdo</a></li>
+			        </ul>
+			      </li>
+			    </ul>
+			    <div id="myTabContent" class="tab-content">
+			      <div class="tab-pane fade active in" id="home">
+			        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+			      </div>
+			      <div class="tab-pane fade" id="profile">
+			        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+			      </div>
+			      <div class="tab-pane fade" id="dropdown1">
+			        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+			      </div>
+			      <div class="tab-pane fade" id="dropdown2">
+			        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+			      </div>
+			    </div>
+			  </div>
+
+			  <h3 id="tabs-usage" class="page-title">用法</h3>
+
+			  <p>通过JavaScript启动标签页（每个标签都需要被单独激活）：</p>
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myTab a'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+				
+				<p>你还可以通过多种方式激活标签页</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myTab a[href="#profile"]'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span> <span class="c1">// 选择元素的 name</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTab a:first'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span> <span class="c1">// 选择第一个标签选项</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTab a:last'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span> <span class="c1">// 选择最后一个标签选项</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTab li:eq(2) a'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span> <span class="c1">// 选择第3个标签选项（0 是第一个）</span>
+</code></pre></div>
+
+				<h4><strong>标记</strong></h4>
+				<p>无需写任何 JavaScript 代码，只需简单的为页面元素指定 <code>data-toggle="tab"</code> 或 <code>data-toggle="pill"</code> 属性即可激活标签页或其他样式标签页。为 <code>ul</code> 添加 <code>nav</code> 和 <code>nav-tabs</code> classe，即可为其添加标签页样式。</p>
+
+				<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- Nav tabs --&gt;</span>
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-tabs"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#home"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#profile"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Profile<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#messages"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Messages<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#settings"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Settings<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="c">&lt;!-- Tab panes --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane active"</span> <span class="na">id=</span><span class="s">"home"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"profile"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"messages"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"settings"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+			
+				<h4><strong>过渡事件</strong></h4>
+				<p>在 <code>.tab-pane</code> 后面加上 <code>.fade</code> 使切换标签页选项有渐变过渡效果，第一个标签选项必须有 <code>.in</code> 才能正确显示第一个选项内容。</p>
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade in active"</span> <span class="na">id=</span><span class="s">"home"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"profile"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"messages"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"settings"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<h4><strong>方法</strong></h4>
+				<h5><strong>$().tab</strong></h5>
+				<p>激活某个标签页和对应的内容容器。应当为标签页指定 <code>data-target</code> 或 <code>href</code> 用以标记DOM树中的目标容器节点。</p>
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-tabs"</span> <span class="na">role=</span><span class="s">"tablist"</span> <span class="na">id=</span><span class="s">"myTab"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#home"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#profile"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Profile<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#messages"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Messages<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#settings"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Settings<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane active"</span> <span class="na">id=</span><span class="s">"home"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"profile"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"messages"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"settings"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#myTab a:last'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+				<h4><strong>事件</strong></h4>
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 150px;">Event Type</th>
+			         <th>Description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>show.bs.tab</td>
+			         <td>当标签页显示之前将触发此事件。使用 <code>event.target</code> 和 <code>event.relatedTarget</code> 分别定位当前活动标签页和上一次的活动标签页（如果有的话）。</td>
+			      </tr>
+			      <tr>
+			         <td>shown.bs.tab</td>
+			         <td>当标签页显示出来之后，此事件将被触发。使用 <code>event.target</code> 和 <code>event.relatedTarget</code> 分别定位当前活动标签页和上一次的活动标签页（如果有的话）。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'a[data-toggle="tab"]'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'shown.bs.tab'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">target</span> <span class="c1">// 当前 tab</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">relatedTarget</span> <span class="c1">// 上一个 tab</span>
+<span class="p">})</span>
+</code></pre></div>
+
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui tooltips 工具提示
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="tooltips" class="page-header">工具提示</h1>
+
+      	<h3 id="tooltips-examples" class="page-title">实例</h3>
+
+      	<p>出于性能方面的考虑，工具提示和弹出提示的data属性API是选择性加入的，也即是说你必要自己初始化他们。</p>
+				<p>将鼠标停悬在下面的链接上查看工具提示：</p>
+
+				<div class="bs-example tooltip-demo">
+			    <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" data-toggle="tooltip" title="" data-original-title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" data-toggle="tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+			    </p>
+			  </div>
+
+			  <h4><strong>四个方向</strong></h4>
+			  <div class="bs-example tooltip-demo">
+			    <div class="bs-example-tooltips">
+			      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+			      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">Tooltip on top</button>
+			      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip on bottom">Tooltip on bottom</button>
+			      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Tooltip on right</button>
+			    </div>
+			  </div>
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"left"</span> <span class="na">title=</span><span class="s">"Tooltip on left"</span><span class="nt">&gt;</span>Tooltip on left<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"top"</span> <span class="na">title=</span><span class="s">"Tooltip on top"</span><span class="nt">&gt;</span>Tooltip on top<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"bottom"</span> <span class="na">title=</span><span class="s">"Tooltip on bottom"</span><span class="nt">&gt;</span>Tooltip on bottom<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"right"</span> <span class="na">title=</span><span class="s">"Tooltip on right"</span><span class="nt">&gt;</span>Tooltip on right<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+				
+				<div class="bs-callout bs-callout-danger">
+			    <h4>选择加入的功能</h4>
+			    <p>出于性能方面的考虑，默认关闭此插件，你需要自己初始化来使用工具提示功能。</p>
+			  </div>
+
+			  <div class="bs-callout bs-callout-warning">
+			    <h4>在按钮组中加入工具提示需要特殊的设置</h4>
+			    <p>当工具提示用在 <code>.btn-group</code> 或者 <code>.input-group</code>内，你必须指定到需要出发的按钮上，而不是父层。</p>
+			  </div>
+
+			  <div class="bs-callout bs-callout-warning">
+			    <h4>不要试着在隐藏的对象中显示工具提示</h4>
+			    <p>当元素对象是 <code>display: none;</code> 调用 <code>$(...).tooltip('show')</code> 将导致工具提示无法正确定位</p>
+			  </div>
+
+			  <h3 id="tooltips-usage" class="page-title">用法</h3>
+
+			  <p>工具提示插件启动后会生成title层，当被触发元素后提示。</p>
+
+			  <p>通过JavaScript触发工具提示：</p>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</code></pre></div>
+
+				<h4><strong>标记</strong></h4>
+
+				<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- HTML to write --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">title=</span><span class="s">"Some tooltip text!"</span><span class="nt">&gt;</span>Hover over me<span class="nt">&lt;/a&gt;</span>
+
+<span class="c">&lt;!-- Generated markup by the plugin --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip top"</span> <span class="na">role=</span><span class="s">"tooltip"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip-arrow"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip-inner"</span><span class="nt">&gt;</span>
+    Some tooltip text!
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<h4><strong>参数设置</strong></h4>
+
+				<p>可以通过 data 属性或 JavaScript 传递参数。对于 data 属性，将参数名附着到 <code>data-</code> 后面即可，例如, <code>data-animation=""</code>。</p>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 100px;">Name</th>
+			         <th style="width: 100px;">Type</th>
+			         <th style="width: 50px;">Default</th>
+			         <th>Description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>animation</td>
+			         <td>boolean</td>
+			         <td>true</td>
+			         <td>应用CSS淡入淡出过渡效果到工具提示。</td>
+			       </tr>
+			       <tr>
+			         <td>container</td>
+			         <td>string | false</td>
+			         <td>false</td>
+			         <td>
+			          <p>Appends the tooltip to a specific element. Example: <code>container: 'body'</code>. This option is particularly useful in that it allows you to position the tooltip in the flow of the document near the triggering element -&nbsp;which will prevent the tooltip from floating away from the triggering element during a window resize.</p>
+			         </td>
+			       </tr>
+			       <tr>
+			         <td>delay</td>
+			         <td>number | object</td>
+			         <td>0</td>
+			         <td>
+			          <p>延迟显示和隐藏工具提示（毫秒） - 不适用于手动触发类型。</p>
+			          <p>如果仅填写数字，delay也同时适用于隐藏显示。</p>
+			          <p>参数结构: <code>delay: { show: 500, hide: 100 }</code></p>
+			         </td>
+			       </tr>
+			       <tr>
+			         <td>html</td>
+			         <td>boolean</td>
+			         <td>false</td>
+			         <td>将HTML插入工具提示。如果为false，jQuery的文本方法将被用来插入内容到DOM中。如果你担心XSS攻击的话仅使用文字。</td>
+			       </tr>
+			       <tr>
+			         <td>placement</td>
+			         <td>string | function</td>
+			         <td>'top'</td>
+			         <td>如何定位工具提示 -  <code>top</code> | <code>bottom</code> | <code>left</code> | <code>right</code> | <code>auto</code> 。<br> 当指定 <code>"auto"</code> 时，它会动态的重新定位工具提示。例如，如果位置是 <code>"auto left"</code> 时，工具提示将默认显示左侧，否则它会显示右侧。</td>
+			       </tr>
+			       <tr>
+			         <td>selector</td>
+			         <td>string</td>
+			         <td>false</td>
+			         <td>If a selector is provided, tooltip objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have tooltips added. See <a href="https://github.com/twbs/bootstrap/issues/4215">this</a> and <a href="http://jsfiddle.net/fScua/">an informative example</a>.</td>
+			       </tr>
+			       <tr>
+			         <td>template</td>
+			         <td>string</td>
+			         <td><code>'&lt;div class="tooltip" role="tooltip"&gt;&lt;div class="tooltip-arrow"&gt;&lt;/div&gt;&lt;div class="tooltip-inner"&gt;&lt;/div&gt;&lt;/div&gt;'</code></td>
+			         <td>
+			          <p>基于HTML创建工具提示</p>
+			          <p>The tooltip's <code>title</code> will be injected into the <code>.tooltip-inner</code>.</p>
+			          <p><code>.tooltip-arrow</code> will become the tooltip's arrow.</p>
+			          <p>The outermost wrapper element should have the <code>.tooltip</code> class.</p>
+			        </td>
+			       </tr>
+			       <tr>
+			         <td>title</td>
+			         <td>string | function</td>
+			         <td>''</td>
+			         <td>Default title value if <code>title</code> attribute isn't present</td>
+			       </tr>
+			       <tr>
+			         <td>trigger</td>
+			         <td>string</td>
+			         <td>'hover focus'</td>
+			         <td>How tooltip is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space.</td>
+			       </tr>
+			       <tr>
+			         <td>viewport</td>
+			         <td>string | object</td>
+			         <td>{ selector: 'body', padding: 0 }</td>
+			         <td>
+			          <p>Keeps the tooltip within the bounds of this element. Example: <code>viewport: '#viewport'</code> or <code>{ selector: '#viewport', padding: 0 }</code></p>
+			         </td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+
+			  <h5><strong>$().tooltip(options)</strong></h5>
+			  <p>对一组页面元素绑定一个工具提示处理器。</p>
+
+			  <h5><strong>.tooltip('show')</strong></h5>
+			  <p>弹出某个页面元素的工具提示。</p>
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h5><strong>.tooltip('hide')</strong></h5>
+				<p>隐藏某个页面元素的工具提示。</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">)</span>
+</code></pre></div>
+				
+				<h5><strong>.tooltip('toggle')</strong></h5>
+				<p>打开或隐藏某个页面元素的工具提示。</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">)</span>
+</code></pre></div>
+				
+				<h5><strong>.tooltip('destroy')</strong></h5>
+				<p>隐藏并销毁某个页面元素的工具提示。</p>
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'destroy'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h4><strong>事件</strong></h4>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 150px;">Event Type</th>
+			         <th>Description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>show.bs.tooltip</td>
+			         <td><code>show</code> 方法调用之后立即触发该事件</td>
+			       </tr>
+			       <tr>
+			         <td>shown.bs.tooltip</td>
+			         <td>此事件在工具提示已经显示出来（并且同时在 CSS 过渡效果完成）之后被触发。</td>
+			       </tr>
+			       <tr>
+			         <td>hide.bs.tooltip</td>
+			         <td><code>hide</code> 方法调用之后立即触发该事件。</td>
+			       </tr>
+			       <tr>
+			         <td>hidden.bs.tooltip</td>
+			         <td>此事件在工具提示被隐藏之后被触发。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myTooltip'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hidden.bs.tooltip'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui popovers 弹出提示
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="popovers" class="page-header">弹出提示</h1>
+
+      	<!-- 实例 -->
+      	<h3 id="popovers-examples" class="page-title">实例</h3>
+
+      	<h4><strong>弹出提示层</strong></h4>
+
+      	<p>4个可选方向参数：top，right，bottom，left</p>
+
+      	<div class="bs-example bs-example-popover">
+			    <div class="popover top">
+			      <div class="arrow"></div>
+			      <h3 class="popover-title">Popover top</h3>
+			      <div class="popover-content">
+			        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+			      </div>
+			    </div>
+
+			    <div class="popover right">
+			      <div class="arrow"></div>
+			      <h3 class="popover-title">Popover right</h3>
+			      <div class="popover-content">
+			        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+			      </div>
+			    </div>
+
+			    <div class="popover bottom">
+			      <div class="arrow"></div>
+			      <h3 class="popover-title">Popover bottom</h3>
+
+			      <div class="popover-content">
+			        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+			      </div>
+			    </div>
+
+			    <div class="popover left">
+			      <div class="arrow"></div>
+			      <h3 class="popover-title">Popover left</h3>
+			      <div class="popover-content">
+			        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+			      </div>
+			    </div>
+
+			    <div class="clearfix"></div>
+			  </div>
+
+			  <h4><strong>演示</strong></h4>
+
+			  <div class="bs-example" style="padding-bottom: 24px;">
+			    <button type="button" class="btn btn-lg btn-danger bs-docs-popover" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="Popover title">点击打开弹出提示</button>
+			  </div>
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-lg btn-danger"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">title=</span><span class="s">"Popover title"</span> <span class="na">data-content=</span><span class="s">"And here's some amazing content. It's very engaging. Right?"</span><span class="nt">&gt;</span>Click to toggle popover<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+				<h5>4个方向</h5>
+
+				<div class="bs-example popover-demo">
+			    <div class="bs-example-popovers">
+			      <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+			        Popover on left
+			      </button>
+			      <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+			        Popover on top
+			      </button>
+			      <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+			        Popover on bottom
+			      </button>
+			      <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+			        Popover on right
+			      </button>
+			    </div>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-container=</span><span class="s">"body"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">data-placement=</span><span class="s">"left"</span> <span class="na">data-content=</span><span class="s">"Vivamus sagittis lacus vel augue laoreet rutrum faucibus."</span><span class="nt">&gt;</span>
+  Popover on left
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-container=</span><span class="s">"body"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">data-placement=</span><span class="s">"top"</span> <span class="na">data-content=</span><span class="s">"Vivamus sagittis lacus vel augue laoreet rutrum faucibus."</span><span class="nt">&gt;</span>
+  Popover on top
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-container=</span><span class="s">"body"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">data-placement=</span><span class="s">"bottom"</span> <span class="na">data-content=</span><span class="s">"Vivamus</span>
+<span class="s">sagittis lacus vel augue laoreet rutrum faucibus."</span><span class="nt">&gt;</span>
+  Popover on bottom
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-container=</span><span class="s">"body"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">data-placement=</span><span class="s">"right"</span> <span class="na">data-content=</span><span class="s">"Vivamus sagittis lacus vel augue laoreet rutrum faucibus."</span><span class="nt">&gt;</span>
+  Popover on right
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+				
+				<h4><strong>清除再次点击</strong></h4>
+
+				<p>使用 <code>trigger: 'focus'</code> 触发清除 popovers 的二次点击事件。</p>
+
+				<div class="bs-example" style="padding-bottom: 24px;">
+			    <button type="button" class="btn btn-lg btn-danger bs-docs-popover-dismiss" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="Dismissible popover">Dismissible popover</button>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-lg btn-danger popover-dismiss"</span> <span class="na">data-toggle=</span><span class="s">"popover"</span> <span class="na">title=</span><span class="s">"Dismissible popover"</span> <span class="na">data-content=</span><span class="s">"And here's some amazing content. It's very engaging. Right?"</span><span class="nt">&gt;</span>Dismissible popover<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.popover-dismiss'</span><span class="p">).</span><span class="nx">popover</span><span class="p">({</span>
+  <span class="nx">trigger</span><span class="o">:</span> <span class="s1">'focus'</span>
+<span class="p">})</span>
+</code></pre></div>
+
+				<!-- 用法 -->
+				<h3 id="popovers-usage" class="page-title">用法</h3>
+
+				<h4><strong>通过 JavaScript 使用</strong></h4>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">popover</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</code></pre></div>
+
+				<h4><strong>参数设置</strong></h4>
+
+				<p>可以通过 data 属性或 JavaScript 传递参数。对于 data 属性，将参数名附着到 <code>data-</code> 之后，例如 <code>data-animation=""</code>。</p>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			        <tr>
+			          <th style="width: 100px;">Name</th>
+			          <th style="width: 100px;">Type</th>
+			          <th style="width: 50px;">Default</th>
+			          <th>Description</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr>
+			          <td>animation</td>
+			          <td>boolean</td>
+			          <td>true</td>
+			          <td>应用CSS淡入淡出过渡效果到工具提示。</td>
+			        </tr>
+			        <tr>
+			          <td>container</td>
+			          <td>string | false</td>
+			          <td>false</td>
+			          <td>
+			           <p>Appends the popover to a specific element. Example: <code>container: 'body'</code>. This option is particularly useful in that it allows you to position the popover in the flow of the document near the triggering element -&nbsp;which will prevent the popover from floating away from the triggering element during a window resize.</p>
+			          </td>
+			        </tr>
+			        <tr>
+			          <td>content</td>
+			          <td>string | function</td>
+			          <td>''</td>
+			          <td>
+			            <p>如果 不存在<code>data-content</code> 属性就显示默认值（默认值为空）</p>
+			            <p>If a function is given, it will be called with 1 argument, which is the element that the popover is attached to.</p>
+			          </td>
+			        </tr>
+			        <tr>
+			          <td>delay</td>
+			          <td>number | object</td>
+			          <td>0</td>
+			          <td>
+			           <p>延迟显示和隐藏工具提示（毫秒） - 不适用于手动触发类型。</p>
+			           <p>如果仅填写数字，delay也同时适用于隐藏显示。</p>
+			           <p>参数结构: <code>delay: { show: 500, hide: 100 }</code></p>
+			          </td>
+			        </tr>
+			        <tr>
+			          <td>html</td>
+			          <td>boolean</td>
+			          <td>false</td>
+			          <td>将HTML插入工具提示。如果为false，jQuery的文本方法将被用来插入内容到DOM中。如果你担心XSS攻击的话仅使用文字。</td>
+			        </tr>
+			        <tr>
+			          <td>placement</td>
+			          <td>string | function</td>
+			          <td>'right'</td>
+			          <td>如何定位工具提示 - top | bottom | left | right | auto 。<br>当指定 "auto" 时，它会动态的重新定位工具提示。例如，如果位置是 "auto left" 时，工具提示将默认显示左侧，否则它会显示右侧。</td>
+			        </tr>
+			        <tr>
+			          <td>selector</td>
+			          <td>string</td>
+			          <td>false</td>
+			          <td>If a selector is provided, popover objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have popovers added. See <a href="https://github.com/twbs/bootstrap/issues/4215">this</a> and <a href="http://jsfiddle.net/fScua/">an informative example</a>.</td>
+			        </tr>
+			        <tr>
+			          <td>template</td>
+			          <td>string</td>
+			          <td><code>'&lt;div class="popover" role="tooltip"&gt;&lt;div class="arrow"&gt;&lt;/div&gt;&lt;h3 class="popover-title"&gt;&lt;/h3&gt;&lt;div class="popover-content"&gt;&lt;/div&gt;&lt;/div&gt;'</code></td>
+			          <td>
+			           <p>基于HTML创建工具提示。</p>
+			           <p>The popover's <code>title</code> will be injected into the <code>.popover-title</code>.</p>
+			           <p>The popover's <code>content</code> will be injected into the <code>.popover-content</code>.</p>
+			           <p><code>.arrow</code> will become the popover's arrow.</p>
+			           <p>The outermost wrapper element should have the <code>.popover</code> class.</p>
+			          </td>
+			        </tr>
+			        <tr>
+			          <td>title</td>
+			          <td>string | function</td>
+			          <td>''</td>
+			          <td>如果没有 <code>title</code> 属性就显示默认值（默认值为空）。</td>
+			        </tr>
+			        <tr>
+			          <td>trigger</td>
+			          <td>string</td>
+			          <td>'click'</td>
+			          <td>How popover is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space.</td>
+			        </tr>
+			        <tr>
+			         <td>viewport</td>
+			         <td>string | object</td>
+			         <td>{ selector: 'body', padding: 0 }</td>
+			         <td>
+			          <p>Keeps the popover within the bounds of this element. Example: <code>viewport: '#viewport'</code> or <code>{ selector: '#viewport', padding: 0 }</code></p>
+			         </td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+
+			  <h5><strong>$().popover(options)</strong></h5>
+
+			  <p>对一组页面元素初始化弹出提示。</p>
+
+			  <h5><strong>.popover('show')</strong></h5>
+
+			  <p>打开某个页面元素的弹出提示。</p>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">popover</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>
+</code></pre></div>
+				
+				<h5><strong>.popover('hide')</strong></h5>
+
+				<p>隐藏某个页面元素的弹出提示。</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">popover</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h5><strong>.popover('hide')</strong></h5>
+
+				<p>打开或隐藏某个页面元素的弹出提示。</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">popover</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">)</span>
+</code></pre></div>
+
+				<p>隐藏并销毁某个页面元素的弹出提示。</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">popover</span><span class="p">(</span><span class="s1">'destroy'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h4><strong>事件</strong></h4>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 150px;">Event Type</th>
+			         <th>Description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>show.bs.popover</td>
+			         <td><code>show</code> 方法调用之后立即触发该事件。</td>
+			       </tr>
+			       <tr>
+			         <td>shown.bs.popover</td>
+			         <td>此事件在弹出提示已经显示出来（并且同时在 CSS 过渡效果完成）之后被触发。</td>
+			       </tr>
+			       <tr>
+			         <td>hide.bs.popover</td>
+			         <td><code>hide</code> 方法调用之后立即触发该事件。</td>
+			       </tr>
+			       <tr>
+			         <td>hidden.bs.popover</td>
+			         <td>此事件在弹出提示被隐藏之后被触发。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myPopover'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hidden.bs.popover'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui alerts 警告框
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section top">
+
+      	<h1 id="alerts" class="page-header">警告框</h1>
+
+      	<!-- 实例 -->
+      	<h3 id="alerts-examples" class="page-title">实例</h3>
+
+      	<p>利用此功能对所有警告消息添加取消功能。</p>
+
+      	<div class="bs-example">
+			    <div class="alert alert-warning fade in" role="alert">
+			      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			      <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+			    </div>
+			  </div>
+
+			  <div class="bs-example">
+			    <div class="alert alert-danger fade in" role="alert">
+			      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			      <h4>Oh snap! You got an error!</h4>
+			      <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+			      <p>
+			        <button type="button" class="btn btn-danger">Take this action</button>
+			        <button type="button" class="btn btn-default">Or do this</button>
+			      </p>
+			    </div>
+			  </div>
+
+			  <!-- 用法 -->
+			  <h3 id="alerts-usage" class="page-title">用法</h3>
+
+			  <p>通过JavaScript为某个警告框添加取消功能：</p>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s2">".alert"</span><span class="p">).</span><span class="nx">alert</span><span class="p">()</span>
+</code></pre></div>
+
+				<h4><strong>标记</strong></h4>
+
+				<p>仅需将 <code>data-dismiss="alert"</code> 添加到关闭按钮即可自动赋予某个警告框关闭的功能。</p>
+
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span><span class="nt">&gt;&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/span&gt;&lt;/button&gt;</span>
+</code></pre></div>
+
+				<h4><strong>方法</strong></h4>
+
+				<h5><strong>$().alert()</strong></h5>
+
+				<p>给所有警告框以关闭功能。如果你希望警告框在关闭时带有动画效果，请确保 <code>.fade</code> 和 <code>.in</code> 已经添加到这些警告框上了。</p>
+
+				<h5><strong>.alert('close')</strong></h5>
+
+				<p>关闭警告框。</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s2">".alert"</span><span class="p">).</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'close'</span><span class="p">)</span>
+</code></pre></div>
+
+				<h4><strong>事件</strong></h4>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			        <tr>
+			          <th style="width: 150px;">Event Type</th>
+			          <th>Description</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr>
+			          <td>close.bs.alert</td>
+			          <td>当 <code>close</code> 方法被调用时，此事件被立即触发。</td>
+			        </tr>
+			        <tr>
+			          <td>closed.bs.alert</td>
+			          <td>当警告框被关闭后（将会等到css过渡效果执行结束），此事件被触发。</td>
+			        </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#my-alert'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'closed.bs.alert'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui buttons 按钮动作
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="buttons" class="page-header">按钮动作</h1>
+
+      	<h3 id="buttons-examples" class="page-title">实例</h3>
+
+      	<p>按钮的用法有很多。例如工具条等多种组件就是通过控制按钮的状态或创建按钮组实现的。</p>
+
+      	<h4><strong>添加状态</strong></h4>
+
+      	<p>为按钮添加 <code>data-loading-text="Loading..."</code> 属性可以让按钮展示“正在加载”状态。</p>
+
+      	<div class="bs-example" style="padding-bottom: 24px;">
+			    <button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary">
+			      Loading state
+			    </button>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"loading-example-btn"</span> <span class="na">data-loading-text=</span><span class="s">"Loading..."</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+  Loading state
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#loading-example-btn'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="nx">btn</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span><span class="s1">'loading'</span><span class="p">)</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(...).</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">btn</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span><span class="s1">'reset'</span><span class="p">)</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+				<h4><strong>作为开关的用法</strong></h4>
+
+				<p>添加 <code>data-toggle="button"</code> 属性可以激活单个按钮的开关状态。</p>
+
+				<div class="bs-example" style="padding-bottom: 24px;">
+			    <button type="button" class="btn btn-primary" data-toggle="button">Single toggle</button>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"button"</span><span class="nt">&gt;</span>Single toggle<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+				<h4><strong>复选框的用法</strong></h4>
+
+				<p>将一组复选框组合为按钮组使用，并添加 <code>data-toggle="buttons"</code> 属性，可以为它们赋予复选框样式。</p>
+
+				<div class="bs-callout bs-callout-warning">
+			    <h4>为默认值添加 <code>.active</code> 类</h4>
+			    <p>对于预先选定的值（也就是复选框），需要其对应的 <code>label</code> 标签添加 <code>.active</code> 类。</p>
+			  </div>
+
+			  <div class="bs-example" style="padding-bottom: 24px;">
+			    <div class="btn-group" data-toggle="buttons">
+			      <label class="btn btn-primary active">
+			        <input type="checkbox" checked=""> Option 1 (pre-checked)
+			      </label>
+			      <label class="btn btn-primary">
+			        <input type="checkbox"> Option 2
+			      </label>
+			      <label class="btn btn-primary">
+			        <input type="checkbox"> Option 3
+			      </label>
+			    </div>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span> <span class="na">data-toggle=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary active"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">checked</span><span class="nt">&gt;</span> Option 1 (pre-checked)
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span> Option 2
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span> Option 3
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<h4><strong>单选框用法</strong></h4>
+
+				<p>将一组单选框组合为按钮组使用，并添加 <code>data-toggle="buttons"</code> ，可以为它们赋予单选框样式</p>
+
+				<div class="bs-callout bs-callout-warning">
+			    <h4>为默认值添加 <code>.active</code> 类</h4>
+			    <p>对于预先选定的值（也就是单选框），需要为其对应的 <code>label</code> 标签添加 <code>.active</code> 类。</p>
+			  </div>
+
+			  <div class="bs-example" style="padding-bottom: 24px;">
+			    <div class="btn-group" data-toggle="buttons">
+			      <label class="btn btn-primary active">
+			        <input type="radio" name="options" id="option1" checked=""> Option 1 (preselected)
+			      </label>
+			      <label class="btn btn-primary">
+			        <input type="radio" name="options" id="option2"> Option 2
+			      </label>
+			      <label class="btn btn-primary">
+			        <input type="radio" name="options" id="option3"> Option 3
+			      </label>
+			    </div>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span> <span class="na">data-toggle=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary active"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option1"</span> <span class="na">checked</span><span class="nt">&gt;</span> Option 1 (preselected)
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option2"</span><span class="nt">&gt;</span> Option 2
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option3"</span><span class="nt">&gt;</span> Option 3
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<!-- 用法 -->
+				<h3 id="buttons-usage" class="page-title">用法</h3>
+
+				<p>通过 JavaScript 代码启用按钮组件：</strong></p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.btn'</span><span class="p">).</span><span class="nx">button</span><span class="p">()</span>
+</code></pre></div>
+
+				<div class="bs-callout bs-callout-warning">
+			    <h4>HTML 标记</h4>
+			    <p>data 属性对于按钮的 JS 插件来说是完整不可分割的部分。</p>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+
+			  <h5><strong>$().button('toggle')</strong></h5>
+
+			  <p>激活按压状态，让按钮的外观表现出被激活的样子。</p>
+
+			  <div class="bs-callout bs-callout-info">
+			    <h4>按钮状态切换</h4>
+			    <p>你可以启动按钮点击切换状态，只需要用 <code>data-toggle</code> 属性。</p>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"button"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+
+				<h5><strong>$().button('loading')</strong></h5>
+
+				<p>设置按钮状态为 loading - 禁用按钮的同时将按钮上的文本替换为 “loading” 字符串。“loading” 字符串应当通过 <code>data-loading-text</code> 属性定义在按钮元素上。</p>
+
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"loading-example-btn"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-loading-text=</span><span class="s">"loading stuff..."</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#loading-example-btn'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="nx">btn</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span><span class="s1">'loading'</span><span class="p">)</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(...).</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">btn</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span><span class="s1">'reset'</span><span class="p">)</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+				<div class="bs-callout bs-callout-danger">
+			    <h4>跨浏览器兼容性</h4>
+			    <p>Firefox 浏览器在页面多次加载时仍然保持表单控件的状态。解决办法是添加 <code>autocomplete="off"</code> 属性。</p>
+			  </div>
+
+			  <h5><strong>$().button('reset')</strong></h5>
+
+			  <p>重置按钮状态 - 按钮上展现的文本将被还原为默认值。</p>
+
+			  <h5><strong>$().button(string)</strong></h5>
+
+			  <p>重置按钮状态 - 将按钮上展示的文本替换为传入的字符串。</p>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-complete-text=</span><span class="s">"finished!"</span> <span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.btn'</span><span class="p">).</span><span class="nx">button</span><span class="p">(</span><span class="s1">'complete'</span><span class="p">)</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui collapse 折叠
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="collapse" class="page-header">折叠</h1>
+
+      	<p>给可折叠的功能，如手风琴式的切换和导航，提供基本和灵活的样式。</p>
+
+      	<h3 id="collapse-examples" class="page-title">实例</h3>
+
+      	<p>通过折叠功能，我们可以创建一个简单的手风琴式的功能：</p>
+
+      	<div class="bs-example">
+			    <div class="panel-group" id="accordion">
+			      <div class="panel panel-default">
+			        <div class="panel-heading">
+			          <h4 class="panel-title">
+			            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">
+			              Collapsible Group Item #1
+			            </a>
+			          </h4>
+			        </div>
+			        <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+			          <div class="panel-body">
+			            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			          </div>
+			        </div>
+			      </div>
+			      <div class="panel panel-default">
+			        <div class="panel-heading">
+			          <h4 class="panel-title">
+			            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+			              Collapsible Group Item #2
+			            </a>
+			          </h4>
+			        </div>
+			        <div id="collapseTwo" class="panel-collapse collapse">
+			          <div class="panel-body">
+			            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			          </div>
+			        </div>
+			      </div>
+			      <div class="panel panel-default">
+			        <div class="panel-heading">
+			          <h4 class="panel-title">
+			            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">
+			              Collapsible Group Item #3
+			            </a>
+			          </h4>
+			        </div>
+			        <div id="collapseThree" class="panel-collapse collapse">
+			          <div class="panel-body">
+			            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-group"</span> <span class="na">id=</span><span class="s">"accordion"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-parent=</span><span class="s">"#accordion"</span> <span class="na">href=</span><span class="s">"#collapseOne"</span><span class="nt">&gt;</span>
+          Collapsible Group Item #1
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"collapseOne"</span> <span class="na">class=</span><span class="s">"panel-collapse collapse in"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-parent=</span><span class="s">"#accordion"</span> <span class="na">href=</span><span class="s">"#collapseTwo"</span><span class="nt">&gt;</span>
+          Collapsible Group Item #2
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"collapseTwo"</span> <span class="na">class=</span><span class="s">"panel-collapse collapse"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-parent=</span><span class="s">"#accordion"</span> <span class="na">href=</span><span class="s">"#collapseThree"</span><span class="nt">&gt;</span>
+          Collapsible Group Item #3
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"collapseThree"</span> <span class="na">class=</span><span class="s">"panel-collapse collapse"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<p>使用此功能时可以无需写任何标记。让按钮控制另一个元素进行展开和折叠。</p>
+
+				<div class="highlight"><pre><code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#demo"</span><span class="nt">&gt;</span>
+  simple collapsible
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"demo"</span> <span class="na">class=</span><span class="s">"collapse in"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<!-- 用法 -->
+				<h3 id="collapse-usage" class="page-title">用法</h3>
+
+				<h4><strong>通过 data 属性</strong></h4>
+
+				<p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a CSS selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you'd like it to default open, add the additional class <code>in</code>.</p>
+
+				<p>To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.</p>
+
+				<h4><strong>通过 JavaScript</strong></h4>
+
+				<p>手动调用：</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.collapse'</span><span class="p">).</span><span class="nx">collapse</span><span class="p">()</span>
+</code></pre></div>
+
+				<h4><strong>参数设置</strong></h4>
+
+				<p>参数传递可通过 data 属性或 JavaScript。对于 data 属性，需要附加选项名称 <code>data-</code>，例如 <code>data-parent=""</code>。</p>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 100px;">Name</th>
+			         <th style="width: 50px;">type</th>
+			         <th style="width: 50px;">default</th>
+			         <th>description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>parent</td>
+			         <td>selector</td>
+			         <td>false</td>
+			         <td>If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior - this dependent on the <code>panel</code> class)</td>
+			       </tr>
+			       <tr>
+			         <td>toggle</td>
+			         <td>boolean</td>
+			         <td>true</td>
+			         <td>Toggles the collapsible element on invocation</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+
+			  <h5><strong>.collapse(options)</strong></h5>
+
+			  <p>启用折叠功能，可以添加多个参数设置。</p>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCollapsible'</span><span class="p">).</span><span class="nx">collapse</span><span class="p">({</span>
+  <span class="nx">toggle</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">})</span>
+</code></pre></div>
+
+				<h5><strong>.collapse('toggle')</strong></h5>
+
+				<p>切换一个可折叠的元素来显示或隐藏。</p>
+
+				<h5><strong>.collapse('show')</strong></h5>
+
+				<p>显示一个折叠对象。</p>
+
+				<h5><strong>.collapse('hide')</strong></h5>
+
+				<p>隐藏一个折叠对象。</p>
+
+				<h4><strong>事件</strong></h4>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 150px;">Event Type</th>
+			         <th>Description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>show.bs.collapse</td>
+			         <td><code>show</code> 方法调用之后立即触发该事件。</td>
+			       </tr>
+			       <tr>
+			         <td>shown.bs.collapse</td>
+			         <td>此事件在折叠对象显示（并且同时在 CSS 过渡效果完成）之后被触发。</td>
+			       </tr>
+			       <tr>
+			         <td>hide.bs.collapse</td>
+			         <td>
+			          <code>hide</code> 方法调用之后立即触发该事件。
+			         </td>
+			       </tr>
+			       <tr>
+			         <td>hidden.bs.collapse</td>
+			         <td>此事件在折叠对象隐藏（并且同时在 CSS 过渡效果完成）之后被触发。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCollapsible'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hidden.bs.collapse'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!-- 
+      *
+      * ui carousel 轮播
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section top">
+
+      	<h1 id="carousel" class="page-header">轮播</h1>
+
+      	<!-- 实例 -->
+      	<h3 id="carousel-examples" class="page-title">实例</h3>
+
+      	<div class="bs-example">
+			    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			      <ol class="carousel-indicators">
+			        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+			        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+			      </ol>
+			      <div class="carousel-inner">
+			        <div class="item active">
+			          <img alt="First slide" src="img/pic1.jpg">
+			        </div>
+			        <div class="item">
+			          <img alt="Second slide" src="img/pic2.jpg">
+			        </div>
+			        <div class="item">
+			          <img alt="Second slide" src="img/pic3.jpg">
+			        </div>
+			      </div>
+			      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			        <span class="glyphicon glyphicon-chevron-left"></span>
+			      </a>
+			      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			        <span class="glyphicon glyphicon-chevron-right"></span>
+			      </a>
+			    </div>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carousel-example-generic"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Indicators --&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"carousel-indicators"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carousel-example-generic"</span> <span class="na">data-slide-to=</span><span class="s">"0"</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carousel-example-generic"</span> <span class="na">data-slide-to=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carousel-example-generic"</span> <span class="na">data-slide-to=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+
+  <span class="c">&lt;!-- Wrapper for slides --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption"</span><span class="nt">&gt;</span>
+        ...
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption"</span><span class="nt">&gt;</span>
+        ...
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    ...
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Controls --&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"left carousel-control"</span> <span class="na">href=</span><span class="s">"#carousel-example-generic"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-chevron-left"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"right carousel-control"</span> <span class="na">href=</span><span class="s">"#carousel-example-generic"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-chevron-right"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<div class="bs-callout bs-callout-warning" id="callout-carousel-transitions">
+			    <h4>不支持在 Internet Explorer 8 和 9 的过渡动画</h4>
+			    <p>动画效果不支持 IE 9 及以下版本 的过渡，因为采用css3推荐的动画。</p>
+			  </div>
+
+			  <h4><strong>可添加内容</strong></h4>
+
+			  <p>在轮播图上加入内容很简单，只需要在 <code>&lt;img&gt;</code> 同级下加上 class 为 <code>carousel-caption</code> 的 <code>&lt;div&gt;</code> 即可。</p>
+
+			  <div class="bs-example">
+			    <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+			      <ol class="carousel-indicators">
+			        <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+			        <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
+			        <li data-target="#carousel-example-captions" data-slide-to="2" class=""></li>
+			      </ol>
+			      <div class="carousel-inner">
+			        <div class="item active">
+			          <img alt="First slide" src="img/pic1.jpg">
+			          <div class="carousel-caption">
+			            <h3>First slide label</h3>
+			            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			          </div>
+			        </div>
+			        <div class="item">
+			          <img alt="First slide" src="img/pic2.jpg">
+			          <div class="carousel-caption">
+			            <h3>Second slide label</h3>
+			            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			          </div>
+			        </div>
+			        <div class="item">
+			          <img alt="First slide" src="img/pic3.jpg">
+			          <div class="carousel-caption">
+			            <h3>Third slide label</h3>
+			            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+			          </div>
+			        </div>
+			      </div>
+			      <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
+			        <span class="glyphicon glyphicon-chevron-left"></span>
+			      </a>
+			      <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
+			        <span class="glyphicon glyphicon-chevron-right"></span>
+			      </a>
+			    </div>
+			  </div>
+
+			  <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>...<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+				<h3 id="carousel-usage" class="page-title">用法</h3>
+
+				<h4><strong>多个轮播</strong></h4>
+				<p>多个轮播用id来区分，且要保证id实在每一个轮播的最外层。</p>
+
+				<h4><strong>通过 data 属性</strong></h4>
+				<p>使用 data 属性可以很容易的控制轮播的位置。<code>data-slide</code> 内可以包含 <code>prev</code> 或 <code>next</code> ，他们可以改变当前帧。另外，使用 <code>data-slide-to</code> 可以传递某个帧的下标，例如 <code>data-slide-to="2"</code> ，这样就可以直接跳转到这个指定的帧 -- 下标从 <code>0</code> 开始计算。</p>
+
+				<h4><strong>通过 JavaScript</strong></h4>
+				<p>手工启动轮播：</p>
+
+				<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">()</span>
+</code></pre></div>
+
+				<h4><strong>参数设置</strong></h4>
+
+				<p>参数可以通过 data 属性或 JavaScript 传递。对于 data 属性，将参数名称附着到 <code>data-</code> 之后，例如 <code>data-interval=""</code>。</p>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 100px;">Name</th>
+			         <th style="width: 50px;">type</th>
+			         <th style="width: 50px;">default</th>
+			         <th>description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>interval</td>
+			         <td>number</td>
+			         <td>5000</td>
+			         <td>轮播切换到下一个的时间，单位是毫秒（ms）。</td>
+			       </tr>
+			       <tr>
+			         <td>pause</td>
+			         <td>string</td>
+			         <td>"hover"</td>
+			         <td>是否启用当鼠标在当前轮播上暂停轮播。</td>
+			       </tr>
+			       <tr>
+			         <td>wrap</td>
+			         <td>boolean</td>
+			         <td>true</td>
+			         <td>轮播是否循环还是停止。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <h4><strong>方法</strong></h4>
+
+			  <h5><strong>.carousel(options)</strong></h5>
+			  <p>初始化一个带有可选参数object的轮播，并且自动开始循环播放。</p>
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">({</span>
+  <span class="nx">interval</span><span class="o">:</span> <span class="mi">2000</span>
+<span class="p">})</span>
+</code></pre></div>
+
+				<h5><strong>.carousel('cycle')</strong></h5>
+				<p>从左向右循环播放。</p>
+
+				<h5><strong>.carousel('pause')</strong></h5>
+				<p>停止循环播放。</p>
+
+				<h5><strong>.carousel(number)</strong></h5>
+				<p>循环到指定帧（下标从0开始，类似数组）。</p>
+
+				<h5><strong>.carousel('prev')</strong></h5>
+				<p>返回到上一帧。</p>
+
+				<h5><strong>.carousel('next')</strong></h5>
+				<p>跳转到下一帧。</p>
+
+				<h4><strong>事件</strong></h4>
+
+				<div class="table-responsive">
+			    <table class="table table-bordered table-striped">
+			      <thead>
+			       <tr>
+			         <th style="width: 150px;">Event Type</th>
+			         <th>Description</th>
+			       </tr>
+			      </thead>
+			      <tbody>
+			       <tr>
+			         <td>slide.bs.carousel</td>
+			         <td>当 <code>slide</code> 实例方法被调用时，此事件会被立即触发。</td>
+			       </tr>
+			       <tr>
+			         <td>slid.bs.carousel</td>
+			         <td>当切换完一帧后触发。</td>
+			       </tr>
+			      </tbody>
+			    </table>
+			  </div>
+
+			  <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'slide.bs.carousel'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!--
+      *
+      * ui ueditor 编辑器
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="ueditor" class="page-header">富文本编辑器</h1>
+
+      	<p>富文本web编辑器经过深思熟虑，我们选择百度开发的 UEditor。</p>
+
+      	<p>
+      		<blockquote>
+					  UEditor 是由百度「FEX前端研发团队」开发的所见即所得富文本web编辑器，具有轻量，可定制，注重用户体验等特点，开源基于MIT协议，允许自由使用和修改代码。
+					</blockquote>
+				</p>
+
+				<p>
+					<a class="btn btn-default" href="http://ueditor.baidu.com/" target="_blank">官方网站</a>
+					<a class="btn btn-default" href="http://fex-team.github.io/ueditor/" target="_blank">UEditor 使用文档</a>
+				</p>
+
+				<h3 id="ueditor-examples" class="page-title">实例</h3>
+
+				<div class="bs-example">
+					<div class="ueditor-box">
+						<script id="ueditor-frame" name="content" style="width:100%;height:240px;"></script>
+					</div>
+				</div>
+
+				<div class="highlight"><pre><code class="language-html xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">html <span class="na">lang=</span><span class="s">"zh-cn"</span></span>&gt;</span>
+  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>UEditor<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="comment">&lt;!-- ueditor css --&gt;</span>
+    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/umeditor.css"</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+
+    <span class="comment">&lt;!-- 加载编辑器的容器 --&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">"container"</span> <span class="attribute">name</span>=<span class="value">"content"</span> <span class="attribute">type</span>=<span class="value">"text/plain"</span>&gt;</span>
+      <span class="javascript">这里写你的初始化内容</span>
+    <span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+    <span class="comment">&lt;!-- 配置文件 --&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/umeditor.config.js"</span>&gt;</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+    <span class="comment">&lt;!-- 编辑器源码文件 --&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/umeditor.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+    <span class="comment">&lt;!-- 实例化编辑器 --&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span>
+      <span class="javascript">var um = UM.getEditor('container');</span>
+    <span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre></div>
+
+				<h3 id="ueditor-usage" class="page-title">用法</h3>
+				<p>前台部署 - 把相关的文件引入到页面中。</p>
+				<div class="highlight"><pre><code class="language-html xml"><span class="comment">&lt;!-- 样式文件 --&gt;</span>
+<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/umeditor.css"</span>&gt;</span>
+
+<span class="comment">&lt;!-- 配置文件 --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/umeditor.config.js"</span>&gt;</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!-- 编辑器源码文件 --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/umeditor.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre></div>
+				
+				<p>加上启动事件。</p>
+
+				<div class="highlight"><pre><code class="language-html xml"><span class="comment">&lt;!-- 实例化编辑器 --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span>
+  <span class="javascript">var um = UM.getEditor('container');</span>
+<span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre></div>
+				
+				<p>后台部署详细文档请参阅 UEditor API文档。</p>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!--
+      *
+      * ui backtop 返回顶部
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="backtop" class="page-header">返回顶部插件</h1>
+
+      	<p>LXUI集成了返回顶部的插件，只需要使用 <code>.backTop</code>的 <code>&lt;div&gt;</code> 即可。</p>
+
+      	<h3 id="backtop-examples" class="page-title">实例</h3>
+
+      	<p>右下角的返回顶部按钮就是内置的，想要实现此功能首先需要在 <code>&lt;body&gt;</code> 内加上一个 <code>&lt;div&gt;</code> ，如下例：</p>
+
+      	<div class="highlight"><pre><code class="language-html xml"><span class="c">&lt;!-- 返回顶部的层 --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"backTop"</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
+
+<span class="c">&lt;!-- 返回顶部事件 --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span>
+  <span class="js">$(<span class="s1">'.backTop'</span>).click(<span class="kd">function()</span>{</span>
+    <span class="js">$(<span class="s1">'html,body'</span>).animate({scrollTop: <span class="s1">'0px'</span>}, <span class="s1">800</span>);</span>
+  <span class="js">})</span>
+<span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre></div>
+
+      	<h3 id="backtop-usage" class="page-title">用法</h3>
+
+      	<p>需要给返回顶部按钮一个点击事件，<code>scrollTop</code> 是返回距离顶部的距离。<code>800</code> 是动画的时间，单位是毫秒(ms)。 </p>
+
+      	<div class="highlight"><pre><code class="language-html xml"><span class="js">$(<span class="s1">'.backTop'</span>).click(<span class="kd">function()</span>{</span>
+  <span class="js">$(<span class="s1">'html,body'</span>).animate({scrollTop: <span class="s1">'0px'</span>}, <span class="s1">800</span>);</span>
+<span class="js">})</span></code></pre></div>
+
+				<h4><strong>无动画效果的返回菜单</strong></h4>
+
+				<p>只需要加一个 <code>&lt;a&gt;</code> 标签，添加<code>href="#"</code>属性即可。（无动画效果）</p>
+
+				<div class="highlight"><pre><code class="language-html xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"return-top"</span>&gt;</span>返回顶部<span class="tag">&lt;<span class="title">/a</span>&gt;</span></code></pre></div>
+
+
+      </div><!-- lxui-docs-section end -->
+
+      <!--
+      *
+      * ui chart js 图表
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+      	<h1 id="Chartsjs" class="page-header">图表插件</h1>
+
+      	<blockquote>
+					  功能强大、开源、美观、图表丰富、兼容绝大多数浏览器的纯js图表库。
+				</blockquote>
+
+				<p>
+					<a class="btn btn-default" href="http://www.highcharts.com/" target="_blank">官方网站</a>
+          <a class="btn btn-default" href="http://www.highcharts.com/" target="_blank">去下载</a>
+					<a class="btn btn-default" href="http://www.hcharts.cn/" target="_blank">中文网站</a>
+				</p>
+
+        <p>highChart包含8中图表类型</p>
+        <ul>
+          <li>曲线图</li>
+          <li>区域图</li>
+          <li>3D图</li>
+          <li>柱状图</li>
+          <li>饼图</li>
+          <li>散列图</li>
+          <li>动态更新</li>
+          <li>混合图</li>
+        </ul>
+
+				<h3 id="Chartsjs-examples" class="page-title">实例</h3>
+
+				<div class="bs-example">
+          <div class="bs-chart">
+			     <div id="high-chart"></div>
+          </div>
+			  </div>
+        <div class="highlight"><pre><code class="language-html xml"><span class="c">&lt;!-- highChart js --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"high-chart"</span>&gt;</span><span class="tag">&lt;<span class="title">/div</span>&gt;</span>
+
+<span class="c">&lt;!-- js --&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span>
+  $(<span class="kd">function()</span>{
+    $(<span class="s1">'#high-chart'</span>).highcharts({
+      <span class="kd">chart</span>: {
+        <span class="kd">type</span>: '<span class="attribute">column</span>'
+      },
+      <span class="kd">title</span>: {
+        <span class="kd">text</span>: '<span class="attribute">Monthly Average Rainfall</span>'
+      },
+      <span class="kd">subtitle</span>: {
+        <span class="kd">text</span>: '<span class="attribute">Source: WorldClimate.com</span>'
+      },
+      <span class="kd">xAxis</span>: {
+        <span class="kd">categories</span>: [<span class="attribute">
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'</span>
+        ]
+      },
+      <span class="kd">yAxis</span>: {
+        <span class="kd">min</span>: <span class="s1">0</span>,
+        <span class="kd">title</span>: {
+          <span class="kd">text</span>: '<span class="attribute">Rainfall (mm)</span>'
+        }
+      },
+      <span class="kd">tooltip</span>: {
+        <span class="kd">headerFormat</span>: '<span class="attribute">&lt;span style="font-size:10px"&gt;{point.key}&lt;/span&gt;&lt;table&gt;</span>',
+        <span class="kd">pointFormat</span>: '<span class="attribute">&lt;tr&gt;&lt;td style="color:{series.color};padding:0"&gt;{series.name}: &lt;/td&gt;' + '&lt;td style="padding:0"&gt;&lt;b&gt;{point.y:.1f} mm&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;</span>',
+        <span class="kd">footerFormat</span>: '<span class="attribute">&lt;/table&gt;</span>',
+        <span class="kd">shared</span>: <span class="attribute">true</span>,
+        <span class="kd">useHTML</span>: <span class="attribute">true</span>
+      },
+      <span class="kd">plotOptions</span>: {
+        <span class="kd">column</span>: {
+          <span class="kd">pointPadding</span>: <span class="s1">0.2</span>,
+          <span class="kd">borderWidth</span>: <span class="s1">0</span>
+        }
+      },
+      <span class="kd">series</span>: [{
+        <span class="kd">name</span>: '<span class="attribute">Tokyo</span>',
+        <span class="kd">data</span>: [<span class="s1">49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4</span>]
+      }, {
+        <span class="kd">name</span>: '<span class="attribute">New York</span>',
+        <span class="kd">data</span>: [<span class="s1">83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3</span>]
+      }, {
+        <span class="kd">name</span>: '<span class="attribute">London</span>',
+        <span class="kd">data</span>: [<span class="s1">48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2</span>]
+      }, {
+        <span class="kd">name</span>: '<span class="attribute">Berlin</span>',
+        <span class="kd">data</span>: [<span class="s1">42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1</span>]
+      }]
+    });
+  });
+<span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre></div>
+
+      </div><!-- lxui-docs-section end -->
+
+      <!--
+      *
+      * ui table js
+      ***************************************************************************
+      -->
+      <div class="lxui-docs-section">
+
+        <h1 id="tablejs" class="page-header">表格插件</h1>
+
+        <p>鉴于使用bootstrap框架开发，所以table的插件也尽量使用基于此开发的，所以我们选择其中一个 Bootstrap table 表格插件。感谢作者<a href="https://github.com/wenzhixin" target="_blank">@wenzhixin</a></p>
+
+        <blockquote>
+            The table displays data in a tabular format and offers rich support to radio, checkbox, sort, pagination and so on. The table has been designed to reduce development time and to require no specific knowledge from developers. It is both featherweight and feature-rich.
+        </blockquote>
+
+        <p>
+          <a class="btn btn-default" href="http://wenzhixin.net.cn/p/bootstrap-table/docs/index.html" target="_blank">官方网站</a>
+          <a class="btn btn-default" href="http://wenzhixin.net.cn/p/bootstrap-table/docs/documentation.html" target="_blank">使用文档</a>
+        </p>
+
+        <h3 id="tablejs-examples" class="page-title">实例</h3>
+
+        <div class="bs-example">
+          <table id="table-pagination" data-toggle="table" data-url="/tpl/frame/plugins/bootstrap-table/docs/data2.json" data-height="400" data-pagination="true" data-search="true">
+              <thead>
+                  <tr>
+                      <th data-field="state" data-checkbox="true"></th>
+                      <th data-field="id" data-align="right">Item ID</th>
+                      <th data-field="name" data-align="center">Item Name</th>
+                      <th data-field="price" data-align="">Item Price</th>
+                  </tr>
+              </thead>
+          </table>
+        </div>
+
+      </div><!-- lxui-docs-section end -->
+
+		</div>
+
+	</div>
+
+</div>
+
+{include="footer"}

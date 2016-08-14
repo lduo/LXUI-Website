@@ -1,0 +1,266 @@
+		<!--
+		*
+		* juqery
+		* 兼容IE6+方案 选择1.11.x
+		* 仅html5 选择2.x
+		*  
+		-->
+
+		<script src="js/jquery-1.11.1.min.js"></script>
+
+		<!--
+		*
+		* LXUI js
+		*
+		-->
+
+		<script src="frame/js/lxui.min.js"></script>
+
+	    {if="$current == 'ie'"}
+
+	    <!--[if lte IE 6]>
+	    <script type="text/javascript" src="frame/js/lxui-ie.min.js"></script>
+	    <![endif]-->
+
+	    <script src="frame/plugins/ueditor/umeditor.config.js"></script>
+		<script src="frame/plugins/ueditor/umeditor.min.js"></script>
+		<script src="frame/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+		<script src="frame/plugins/Highcharts-4.0.3/js/highcharts.js"></script>
+    	<script src="frame/plugins/Highcharts-4.0.3/js/modules/exporting.js"></script>
+
+	   	<script type="text/javascript">
+		
+		  $(function() {
+		    $(document).ready(function () {
+		      $('a[rel=tooltip]').tooltip({});
+		      $(".popover").show();
+		    });
+
+		    //editor
+			var um = UM.getEditor('ueditor-frame', {
+				    autoHeightEnabled: true,
+				    autoFloatEnabled: true
+			});
+
+			//highcharts
+				$('#high-chart').highcharts({
+			        chart: {
+			            type: 'column'
+			        },
+			        title: {
+			            text: 'Monthly Average Rainfall'
+			        },
+			        subtitle: {
+			            text: 'Source: WorldClimate.com'
+			        },
+			        xAxis: {
+			            categories: [
+			                'Jan',
+			                'Feb',
+			                'Mar',
+			                'Apr',
+			                'May',
+			                'Jun',
+			                'Jul',
+			                'Aug',
+			                'Sep',
+			                'Oct',
+			                'Nov',
+			                'Dec'
+			            ]
+			        },
+			        yAxis: {
+			            min: 0,
+			            title: {
+			                text: 'Rainfall (mm)'
+			            }
+			        },
+			        tooltip: {
+			            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+			            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+			                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+			            footerFormat: '</table>',
+			            shared: true,
+			            useHTML: true
+			        },
+			        plotOptions: {
+			            column: {
+			                pointPadding: 0.2,
+			                borderWidth: 0
+			            }
+			        },
+			        series: [{
+			            name: 'Tokyo',
+			            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+			        }, {
+			            name: 'New York',
+			            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+			        }, {
+			            name: 'London',
+			            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+			        }, {
+			            name: 'Berlin',
+			            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+			        }]
+			    });
+
+		  });
+
+		  $('.carousel').carousel({interval: 3000});
+
+		</script>
+
+    	{/if}
+
+		<!-- custom -->
+		<script src="js/custom.js"></script>
+
+		<!-- tooltips -->
+		{if="$current == 'javascript'"}
+
+		<script src="frame/plugins/ueditor/umeditor.config.js"></script>
+		<script src="frame/plugins/ueditor/umeditor.min.js"></script>
+		<script src="frame/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+    	<script src="frame/plugins/Highcharts-4.0.3/js/highcharts.js"></script>
+    	<script src="frame/plugins/Highcharts-4.0.3/js/modules/exporting.js"></script>
+
+    	<script src="frame/plugins/bootstrap-table/src/bootstrap-table.js"></script>
+    	<script src="frame/plugins/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
+
+		<script>
+			$(function(){
+				$('.tooltip-demo a,.tooltip-demo button').tooltip();
+				$('.bs-docs-popover,.bs-example-popovers button').popover();
+				$('.bs-docs-popover-dismiss').popover({
+					trigger: 'focus'
+				});
+				$('#loading-example-btn').click(function () {
+				    var b=$(this);
+				    b.button("loading"),
+				    setTimeout(function(){
+				    	b.button("reset")
+				    },3e3)
+				});
+
+				//editor
+				var um = UM.getEditor('ueditor-frame', {
+				    autoHeightEnabled: true,
+				    autoFloatEnabled: true
+				});
+
+				//highcharts
+				$('#high-chart').highcharts({
+			        chart: {
+			            type: 'column'
+			        },
+			        title: {
+			            text: 'Monthly Average Rainfall'
+			        },
+			        subtitle: {
+			            text: 'Source: WorldClimate.com'
+			        },
+			        xAxis: {
+			            categories: [
+			                'Jan',
+			                'Feb',
+			                'Mar',
+			                'Apr',
+			                'May',
+			                'Jun',
+			                'Jul',
+			                'Aug',
+			                'Sep',
+			                'Oct',
+			                'Nov',
+			                'Dec'
+			            ]
+			        },
+			        yAxis: {
+			            min: 0,
+			            title: {
+			                text: 'Rainfall (mm)'
+			            }
+			        },
+			        tooltip: {
+			            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+			            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+			                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+			            footerFormat: '</table>',
+			            shared: true,
+			            useHTML: true
+			        },
+			        plotOptions: {
+			            column: {
+			                pointPadding: 0.2,
+			                borderWidth: 0
+			            }
+			        },
+			        series: [{
+			            name: 'Tokyo',
+			            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+			        }, {
+			            name: 'New York',
+			            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+			        }, {
+			            name: 'London',
+			            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+			        }, {
+			            name: 'Berlin',
+			            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+			        }]
+			    });
+
+			});
+
+		</script>
+
+		{/if}
+
+		<!-- 浏览器检测 -->
+		<!--[if IE 8]>
+		<div class="alert-ie">
+			<div class="alert alert-warning fade in" role="alert">
+			     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			     <strong>用IE8的家伙！</strong> 良心UI 兼容ie6及以上所有浏览器, 进入 <a href="/ie.php">IE6+</a> 查看支持组件。
+			</div>
+		</div>
+		<![endif]-->
+		<!--[if IE 7]>
+		<div class="alert-ie">
+			<div class="alert alert-warning fade in" role="alert">
+			     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			     <strong>用IE7的家伙！</strong> 良心UI 兼容ie6及以上所有浏览器, 进入 <a href="/ie.php">IE6+</a> 查看支持组件。
+			</div>
+		</div>
+		<![endif]-->
+		<!--[if IE 6]>
+		<div class="alert-ie">
+			<div class="alert alert-warning fade in" role="alert">
+			     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			     <strong>用IE6的家伙！</strong> 良心UI 兼容ie6及以上所有浏览器, 进入 <a href="/ie.php">IE6+</a> 查看支持组件。
+			</div>
+		</div>
+		<![endif]-->
+   
+		<!-- 返回顶部 -->
+		<div class="backTop img-rounded"></div>
+
+		<footer class="lxui-docs-footer" role="contentinfo">
+			<div class="container clearfix">
+				<div class="pull-left lxui-docs-footInfo">当前版本 <b>Ω0.5</b> 京ICP备11031288号-2</div>
+        <div class="pull-right lxui-docs-footInfo"><a href="/about.php">Who We Are?</a></div>
+			</div>
+		</footer>
+
+	</body>
+</html>

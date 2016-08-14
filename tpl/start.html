@@ -1,0 +1,541 @@
+{include="header"}
+
+<div class="container lxui-docs-container">
+
+	<div class="row">
+
+		<div class="col-md-3">
+
+			<div class="bs-sidebar hidden-print" role="complementary">
+
+            	<ul class="nav bs-sidenav">
+            		<li>
+            			<a href="#download">下载LXUI</a>
+            		</li>
+            		<li>
+            			<a href="#whats-included">包含哪些文件</a>
+            		</li>
+            		<li>
+            			<a href="#html-template">HTML模板</a>
+            		</li>
+            		<li>
+            			<a href="#disable-responsive">禁用响应式布局</a>
+            		</li>
+            		<li>
+            			<a href="#overview">全局概览</a>
+            			<ul class="nav">
+            				<li><a href="#overview-doctype">HTML5文档类型</a></li>
+            				<li><a href="#overview-mobile">移动设备优先</a></li>
+            				<li><a href="#overview-responsive-images">响应式图片</a></li>
+            				<li><a href="#overview-responsive-container">响应式容器</a></li>
+            			</ul>
+            		</li>
+            		<li>
+            			<a href="#grid">栅格系统</a>
+            			<ul class="nav">
+            				<li><a href="#grid-info">简介</a></li>
+            				<li><a href="#grid-offsetting">列偏移</a></li>
+            				<li><a href="#grid-nesting">嵌套列</a></li>
+            				<li><a href="#grid-column-ordering">列排序</a></li>
+            			</ul>
+            		</li>
+                    <li>
+                        <a href="#helper-classes">工具class</a>
+                        <ul class="nav">
+                            <li><a href="#helper-classes-floats">设置浮动</a></li>
+                            <li><a href="#helper-classes-clearfix">清除浮动</a></li>
+                            <li><a href="#helper-classes-center">内容区域居中</a></li>
+                            <li><a href="#helper-classes-show-hide">显示隐藏内容</a></li>
+                        </ul>
+                    </li>
+            	</ul>
+
+            </div>
+
+		</div>
+
+		<div class="col-md-9" role="main">
+
+			<!-- 
+            *
+            * getstart download 下载
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section top">
+
+                <h1 id="download" class="page-header">下载LXUI</h1>
+
+                <p>LXUI基于Boostrap V3.1改造而来，主要为了减少设计和编码的难度，提供丰富的样式组件。</p>
+
+                <div class="bs-callout bs-callout-warning">
+    				<h4>LXUI依赖jQuery</h4>
+    				<p>在引入LXUI之前请先引入jQuery，如果你的项目为ie6+设计，请选择jQuery 1.x的版本，如果基于html5开发，可以选择更轻量的jQuery 2.x开发。<a href="http://jquery.com/download/" target="_blank">下载jQuery</a></p>
+    			</div>
+
+    			<p><a href="http://pan.baidu.com/s/1pJ9HqWF" class="btn btn-success btn-lg">下载LXUI</a></p>
+
+    			<div class="bs-docs-dl-options" style="margin-top: 10px;">
+                    <p style="margin-bottom: 10px;">良心UI插件版包含推荐的第三方插件文件，根据需求选择下载</p>
+    				<p style="margin-bottom: 10px;"><a href="https://github.com/lduo/LXUI" class="btn btn-default btn-sm">Github</a></p>
+    				<p class="text-muted">从GitHub直接下载LXUI的源码</p>
+    			</div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * getstart download 包含文件
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="whats-included" class="page-header">包含了哪些文件</h1>
+
+                <p>LXUI下载后可以看到目录和文件，这些文件按照类别放到了不同类别的目录中，并且提供了源码和压缩两种版本。</p>
+
+                <p>LXUI目录结构如下：</p>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-bash">LXUI/
+├── image/ <span class="c">(图片目录)</span>
+├── css/
+│   ├── lxui.css
+│   ├── lxui.min.css
+│   ├── lxui-ie6.css <span class="c">(兼容IE6+)</span>
+│   └── lxui-ie6.min.css <span class="c">(兼容IE6+)</span>
+├── js/
+│   ├── lxui.js
+│   ├── lxui.min.js
+│   ├── lxui-ie.js <span class="c">(兼容IE6+)</span>
+│   └── html5shiv.min.js
+├── fonts/
+│   ├── glyphicons-halflings-regular.eot
+│   ├── glyphicons-halflings-regular.svg
+│   ├── glyphicons-halflings-regular.ttf
+│   └── glyphicons-halflings-regular.woff
+└── plugins/ <span class="c">(第三方插件，可删除)</span>
+
+</code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * getstart html-template HTML模板
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="html-template" class="page-header">HTML模板</h1>
+
+                <p>复制下面html代码粘贴到页面，简单无比。</p>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">html <span class="na">lang=</span><span class="s">"zh-cn"</span></span>&gt;</span>
+  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Bootstrap 101 Template<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="comment">&lt;!-- LXUI --&gt;</span>
+    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/lxui.min.css"</span>&gt;</span>
+
+    <span class="comment">&lt;!-- HTML5 Shiv 和 Respond.js 为了在 IE8 下支持响应式布局 --&gt;</span>
+    <span class="comment">&lt;!-- 注意: Hhtml5shiv.min.js 不能用本地路径 file:// --&gt;</span>
+    <span class="comment">&lt;!--[if lt IE 9]&gt;
+        &lt;script src="js/html5shiv.min.js"&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;</span>
+  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+
+    <span class="comment">&lt;!-- jQuery --&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/jquery.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+    <span class="comment">&lt;!-- LXUI --&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/lxui.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+                <p>上例中出现的2个插件 <code>html5shiv.min.js</code> 和 <code>respond.min.js</code> 是为了在ie8下能够继续支持响应式布局。提供单独下载</p>
+
+                <div class="alert alert-danger">注意: html5shiv.min.js 不能用本地路径，例如 file://</div>
+                <p><a href="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js" class="btn btn-primary btn-sm" role="button" target="_blank">下载 html5shiv.min.js</a> <a href="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js" class="btn btn-primary btn-sm" role="button" target="_blank">下载 respond.min.js</a></p>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * getstart disable-responsive 禁用响应式布局
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="disable-responsive" class="page-header">禁用响应式布局</h1>
+
+                <p>针对不同屏幕尺寸调整页面布局，使其在各个尺寸的屏幕上表现良好。（在没有引用 <code>html5shiv.min.js</code> 的情况下是兼容到最低IE9，如果引用则兼容最低IE8浏览器）</p>
+
+                <div class="bs-callout bs-callout-warning">
+    				<p>如果在开发前不打算使用响应式布局，只需要自己单独写布局即可。如开发期间准备禁用响应式布局，则按照以下步骤执行。</p>
+    			</div>
+
+    			<h3>禁用响应式布局的步骤</h3>
+    			<ol class="lxui-docs-ul">
+    				<li>移除 <code>&lt;meta&gt;</code> viewport标签
+    					<div class="highlight">
+    						<pre>
+    							<code class="language-html xml"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span>&gt;</span></code>
+                    		</pre>
+                		</div>
+    				</li>
+    				<li>通过为 <code>.container </code>设置一个width值从而覆盖框架的默认width设置，例如 <code>width: 970px !important;</code>。请确保这些设置全部放在默认的LXUI CSS后面。注意，你也可以略去 <code>!important</code>。</li>
+    				<li>如果使用了导航条，需要移除所有导航条的折叠和展开行为。</li>
+    				<li>对于栅格布局，额外增加 <code>.col-xs-*</code> classe或替换掉 <code>.col-md-*</code> 和 <code>.col-lg-*</code>。不要担心，针对超小屏幕设备的栅格系统能够在所有分辨率的环境下展开。</li>
+    			</ol>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * getstart overview 全局概览
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="overview" class="page-header">全局概览</h1>
+
+                <h3 id="overview-doctype" class="page-title">HTML5文档类型</h3>
+
+
+                <p>LXUI使用到的某些HTML元素和CSS属性需要将页面设置为HTML5文档类型。在你项目中的每个页面都要参照下面的格式进行设置。</p>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"zh-cn"</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!-- 移动设备优先 -->
+                <h3 id="overview-mobile" class="page-title">移动设备优先</h3>
+
+                <p>为了确保适当的绘制和触屏缩放，需要在<head>之中添加viewport元数据标签。</p>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+                <p>在移动设备浏览器上，通过为viewport meta标签添加 <code>user-scalable=no</code> 可以禁用其缩放（zooming）功能。这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式我们并不推荐所有网站使用，还是要根据项目需求而定。</p>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!-- 响应式图片 -->
+                <h3 id="overview-responsive-images" class="page-title">响应式图片</h3>
+
+                <p>通过添加 <code>.img-responsive</code> class可以让图片对响应式布局的支持更友好。其实质是为图片赋予了max-width: 100%; 和height: auto;属性，可以让图片按比例缩放，不超过其父元素的尺寸。</p>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"..."</span> <span class="attribute">class</span>=<span class="value">"img-responsive"</span> <span class="attribute">alt</span>=<span class="value">"Responsive image"</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!-- 响应式容器 -->
+                <h3 id="overview-responsive-container" class="page-title">响应式容器</h3>
+
+                <p>用 <code>.container</code> 包裹页面上的内容即可实现居中对齐。在不同的媒体查询阈值范围内都为container设置了 <code>width</code>，用以匹配栅格系统。</p>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * getstart grid 栅格系统
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="grid" class="page-header">栅格系统</h1>
+
+
+                <!-- 栅格系统 简介 -->
+                <h3 id="grid-info" class="page-title">简介</h3>
+
+                <p>通俗来讲，栅格系统就是将页面宽度平均分成12等份，不管什么布局，你行内的宽度加起来以一共是12个列。</p>
+
+                <div class="bs-docs-grid">
+      				<div class="row show-grid">
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+        				<div class="col-md-1">.col-md-1</div>
+      				</div>
+      				<div class="row show-grid">
+        				<div class="col-md-8">.col-md-8</div>
+        				<div class="col-md-4">.col-md-4</div>
+      				</div>
+      				<div class="row show-grid">
+        				<div class="col-md-4">.col-md-4</div>
+        				<div class="col-md-4">.col-md-4</div>
+        				<div class="col-md-4">.col-md-4</div>
+      				</div>
+      				<div class="row show-grid">
+        				<div class="col-md-6">.col-md-6</div>
+        				<div class="col-md-6">.col-md-6</div>
+      				</div>
+    			</div>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-1"</span>&gt;</span>.col-md-1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-8"</span>&gt;</span>.col-md-8<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-4"</span>&gt;</span>.col-md-4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-4"</span>&gt;</span>.col-md-4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-4"</span>&gt;</span>.col-md-4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-4"</span>&gt;</span>.col-md-4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-6"</span>&gt;</span>.col-md-6<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-6"</span>&gt;</span>.col-md-6<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!-- 列偏移 -->
+                <h3 id="grid-offsetting" class="page-title">列偏移</h3>
+
+                <p>使用 <code>.col-md-offset-*</code> 可以将列偏移到右侧。这些class通过使用 <code>*</code> 选择器将所有列增加了列的左侧margin。例如，<code>.col-md-offset-4</code> 将 <code>.col-md-4</code> 向右移动了4个列的宽度。</p>
+
+                <div class="bs-docs-grid">
+      				<div class="row show-grid">
+       				 <div class="col-md-4">.col-md-4</div>
+       				 <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+      				</div>
+      				<div class="row show-grid">
+        				<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+        				<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+      				</div>
+      				<div class="row show-grid">
+        				<div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+      				</div>
+    			</div>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-4"</span>&gt;</span>.col-md-4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-4 col-md-offset-4"</span>&gt;</span>.col-md-4 .col-md-offset-4<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-3 col-md-offset-3"</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-3 col-md-offset-3"</span>&gt;</span>.col-md-3 .col-md-offset-3<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-6 col-md-offset-3"</span>&gt;</span>.col-md-6 .col-md-offset-3<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!-- 嵌套列 -->
+                <h3 id="grid-nesting" class="page-title">嵌套列</h3>
+
+                <p>为了使用内置的栅格将内容嵌套，通过添加一个新的 <code>.row</code> 和一系列 <code>.col-md-*</code> 列到已经存在的 <code>.col-md-*</code>列内即可实现。嵌套row所包含的列加起来应该等于12。</p>
+
+                <div class="bs-docs-grid">
+      				<div class="row show-grid">
+      					<div class="col-md-9">
+        					Level 1: .col-md-9
+        					<div class="row show-grid">
+          					<div class="col-md-6">
+            					Level 2: .col-md-6
+          					</div>
+          					<div class="col-md-6">
+            					Level 2: .col-md-6
+          					</div>
+        					</div>
+      					</div>
+    				</div>
+    			</div>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-9"</span>&gt;</span>
+    Level 1: .col-md-9
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-6"</span>&gt;</span>
+        Level 2: .col-md-6
+      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-6"</span>&gt;</span>
+        Level 2: .col-md-6
+      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!-- 列排序 -->
+                <h3 id="grid-column-ordering" class="page-title">列排序</h3>
+
+                <p>通过使用 <code>.col-md-push-*</code> 和 <code>.col-md-pull-*</code> 就可以很容易的改变列的顺序。</p>
+
+                <div class="bs-docs-grid">
+      				<div class="row show-grid">
+      					<div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+      					<div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+    				</div>
+    			</div>
+
+                <div class="highlight">
+                    <pre>
+                    	<code class="language-html xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-9 col-md-push-3"</span>&gt;</span>.col-md-9 .col-md-push-3<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-md-3 col-md-pull-9"</span>&gt;</span>.col-md-3 .col-md-pull-9<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            <!-- 
+            *
+            * getstart helper-classes 工具class
+            *********************************************************************************
+            -->
+            <div class="lxui-docs-section">
+
+                <h1 id="helper-classes" class="page-header">工具class</h1>
+
+
+                <!--设置浮动-->
+                <h3 id="helper-classes-floats" class="page-title">设置浮动</h3>
+
+                <p>通过这两个class让页面元素左右浮动。 <code>!important</code> 被用来避免某些问题。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="language-html xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"pull-left"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"pull-right"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+                <p>设置浮动的源码</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="language-css undefined">// Classes
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
+</code>
+                    </pre>
+                </div>
+
+                <div class="bs-callout bs-callout-warning">
+                    <h4>不要用于导航条</h4>
+                    <p>如果是用于对齐导航条上的组件，请务必使用<code>.navbar-left</code> 或 <code>.navbar-right</code>。</p>
+                </div>
+
+
+                <!--清除浮动-->
+                <h3 id="helper-classes-clearfix" class="page-title">清除浮动</h3>
+
+                <p>使用 <code>.clearfix</code> 清除任意页面元素的浮动。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="language-html xml"><span class="comment">&lt;!-- 清除浮动 --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"clearfix"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!--内容区域居中-->
+                <h3 id="helper-classes-center" class="page-title">内容区域居中</h3>
+
+                <p>将页面元素设置为 <code>display: block</code> 并通过设置 <code>margin: 0 auto;</code> 使其居中。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="language-html xml"><span class="comment">&lt;!-- 居中 --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"margin: 0 auto; display: block;"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+
+                <!--显示隐藏内容-->
+                <h3 id="helper-classes-show-hide" class="page-title">显示隐藏内容</h3>
+
+                <p>通过 <code>.show</code> 和 <code>.hidden</code> 可以强制显示或隐藏任一页面元素（包括在屏幕阅读器上）。这两个class使用了!important以避免冲突，原因和快速浮动类似。</p>
+
+                <div class="highlight">
+                    <pre>
+                        <code class="language-html xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"show"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"hidden"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+                    </pre>
+                </div>
+
+            </div><!-- lxui-docs-section end -->
+
+            
+
+		</div>
+
+	</div>
+
+</div>
+
+{include="footer"}
